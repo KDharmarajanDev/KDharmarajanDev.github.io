@@ -1,0 +1,18 @@
+body {
+    background-color: #000C66;
+}
+
+#title {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#intro-section {
+    background-color: #006600;
+}
+
+#title-feature {
+    height: 400px;
+    width: auto;
+    background-color: #006600;
+}
