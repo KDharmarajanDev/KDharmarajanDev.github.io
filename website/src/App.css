@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Open+Sans&family=Oswald&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -57,4 +58,22 @@
   font-family: 'Playfair Display', serif;
   font-size: 30px;
   padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+#grid-container {
+  background-color: inherit;
+}
+
+.project-container { 
+  background-color: #2E9CCA;
+  border: none;
+  border-radius: 10px;
+}
+
+.project-container-title {
+  color: white;
+  font-family: 'Alegreya', serif;
+  text-align: center;
+  padding-top: 10px;
 }
