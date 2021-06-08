@@ -1,7 +1,18 @@
 import './App.css';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import ProjectContainer from './project-container'
+import ProjectCard from './ProjectCard'
+
+const projects = [
+  {
+    "name": "LED Light Strip Scheduler"
+  },
+  {
+    "name": "Knot Visualizer"
+  },
+  {
+    "name": "Drone Control Web Server"
+  }
+]
 
 function App() {
   return (
@@ -12,19 +23,14 @@ function App() {
       </div>
       <div id="project-section">
           <h2 id="projects-title">Projects</h2>
-          <Grid container spacing={1000} id="grid-container">
-            <ProjectContainer name="LED Light Strip Scheduler">
+          <Grid container id="grid-container" justify="space-between" spacing={5} wrap="wrap" direction="row">
+            {projects.map(project => (
+              <Grid xs={12} sm={4} item>
+                <ProjectCard name={project.name}>
 
-            </ProjectContainer>
-            <ProjectContainer name="LED Light Strip Scheduler">
-              
-            </ProjectContainer>
-            <ProjectContainer name="LED Light Strip Scheduler">
-              
-            </ProjectContainer>
-            <ProjectContainer name="LED Light Strip Scheduler">
-              
-            </ProjectContainer>
+                </ProjectCard>
+              </Grid>
+            ))}
           </Grid>
       </div>
     </div>
