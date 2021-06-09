@@ -27,7 +27,6 @@ function App() {
             {projects.map(project => (
               <Grid xs={12} sm={4} item>
                 <ProjectCard name={project.name}>
-
                 </ProjectCard>
               </Grid>
             ))}
