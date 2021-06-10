@@ -1,18 +1,24 @@
 import './App.css';
 import Grid from '@material-ui/core/Grid';
 import ProjectCard from './ProjectCard'
+import LEDLightStripScheduler from './assets/LEDLightStripScheduler.png'
 
 const projects = [
   {
-    "name": "LED Light Strip Scheduler"
+    name: "LED Light Strip Scheduler",
+    image: LEDLightStripScheduler
   },
   {
-    "name": "Knot Visualizer"
+    name: "Knot Visualizer",
+    image: "./assets/LEDLightStripScheduler.png"
   },
   {
-    "name": "Drone Control Web Server"
+    name: "Drone Control Web Server",
+    image: "./assets/LEDLightStripScheduler.png"
   }
 ]
+
+console.log(typeof LEDLightStripScheduler)
 
 function App() {
   return (
@@ -26,7 +32,7 @@ function App() {
           <Grid container id="grid-container" justify="space-between" spacing={5} wrap="wrap" direction="row">
             {projects.map(project => (
               <Grid xs={12} sm={4} item>
-                <ProjectCard name={project.name}>
+                <ProjectCard name={project.name} image={project.image}>
                 </ProjectCard>
               </Grid>
             ))}
