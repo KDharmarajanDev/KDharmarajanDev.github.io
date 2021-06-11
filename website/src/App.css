@@ -40,7 +40,7 @@ body {
 }
 
 #project-section {
-  height: 600px;
+  height: fit-content;
   width: auto;
   left: 0;
   background-color: #29648A;
