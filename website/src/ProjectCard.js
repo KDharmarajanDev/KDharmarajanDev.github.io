@@ -12,7 +12,7 @@ const useStyles = makeStyles({
       border: "none",
       "border-radius": "10px",
       height: "fit-content",
-      padding: 0,
+      padding: 10,
       "background-color": "#2E9CCA",
     },
     media: {
@@ -26,7 +26,9 @@ const useStyles = makeStyles({
       color: 'white'
     },
     description: {
-      color: "white"
+      color: "white",
+      textAlign: "center",
+      marginTop: 10
     }
   });
   
@@ -40,6 +42,7 @@ export default function ProjectCard(props) {
     return (<Card className="project-container" className={classes.root} key={props.name}>
                 <CardHeader title={props.name} className="project-container-title"/>
                 <CardMedia className={classes.media} component="img" image={props.image}/>
+                {console.log(props.description)}
                 <Typography component="p" className={classes.description}>
                   {props.description}
                 </Typography>

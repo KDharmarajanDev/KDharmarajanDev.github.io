@@ -7,17 +7,22 @@ const projects = [
   {
     name: "LED Light Strip Scheduler",
     image: LEDLightStripScheduler,
-    link: "https://github.com/KDharmarajanDev/led-light-strip-android-app"
+    link: "https://github.com/KDharmarajanDev/led-light-strip-android-app",
+    description: "LED Light Strip Scheduler is a simple and powerful application on the " 
+    + "Android operating system that allows users to control an Arduino operating RGB LED Strips with over one billion possible sequences."
   },
   {
     name: "Knot Visualizer",
     image: "./assets/LEDLightStripScheduler.png",
-    link: "https://github.com/KDharmarajanDev/knot-visualizer-app"
+    link: "https://github.com/KDharmarajanDev/knot-visualizer-app",
+    description: "Knot Visualizer is an iOS application fueled by ARKit that displays the progression of knot tying in "
+    + "one's environment with the goal of educating the end user."
   },
   {
     name: "Drone Control Web Server",
     image: "./assets/LEDLightStripScheduler.png",
-    link: "https://github.com/KDharmarajanDev/drone-control-web-server"
+    link: "https://github.com/KDharmarajanDev/drone-control-web-server",
+    description: "Drone Control Web Server is a modular full-stack application that allows for ssensor data streaming and data plotting."
   }
 ]
 
@@ -35,7 +40,7 @@ function App() {
           <Grid container id="grid-container" justify="space-between" spacing={5} wrap="wrap" direction="row">
             {projects.map(project => (
               <Grid xs={12} md={4} item>
-                <ProjectCard name={project.name} image={project.image} link={project.link}>
+                <ProjectCard name={project.name} image={project.image} link={project.link} description={project.description}>
                 </ProjectCard>
               </Grid>
             ))}
