@@ -2,6 +2,7 @@ import './App.css';
 import Grid from '@material-ui/core/Grid';
 import ProjectCard from './ProjectCard'
 import LEDLightStripScheduler from './assets/LEDLightStripScheduler.png'
+import TitleFeature from './TitleFeature';
 
 const projects = [
   {
@@ -26,15 +27,13 @@ const projects = [
   }
 ]
 
-console.log(typeof LEDLightStripScheduler)
-
 function App() {
   return (
     <div id="app">
       <h1 id="title">Karthik Dharmarajan</h1>
-      <div id="title-feature"></div>
       <div id="intro-section">
       </div>
+      <TitleFeature/>
       <div id="project-section">
           <h2 id="projects-title">Projects</h2>
           <Grid container id="grid-container" justify="space-between" spacing={5} wrap="wrap" direction="row">
