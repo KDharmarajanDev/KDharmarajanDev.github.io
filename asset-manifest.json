@@ -1,23 +1,24 @@
 {
   "files": {
     "main.css": "/static/css/main.f4679da8.chunk.css",
-    "main.js": "/static/js/main.be816925.chunk.js",
-    "main.js.map": "/static/js/main.be816925.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.fce28488.js",
-    "runtime-main.js.map": "/static/js/runtime-main.fce28488.js.map",
-    "static/js/2.8c0a1a6d.chunk.js": "/static/js/2.8c0a1a6d.chunk.js",
-    "static/js/2.8c0a1a6d.chunk.js.map": "/static/js/2.8c0a1a6d.chunk.js.map",
-    "static/js/3.8bd8716e.chunk.js": "/static/js/3.8bd8716e.chunk.js",
-    "static/js/3.8bd8716e.chunk.js.map": "/static/js/3.8bd8716e.chunk.js.map",
+    "main.js": "/static/js/main.685a5c20.chunk.js",
+    "main.js.map": "/static/js/main.685a5c20.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.78d22d9f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.78d22d9f.js.map",
+    "static/js/2.8d6431f9.chunk.js": "/static/js/2.8d6431f9.chunk.js",
+    "static/js/2.8d6431f9.chunk.js.map": "/static/js/2.8d6431f9.chunk.js.map",
+    "static/js/3.85fec916.chunk.js": "/static/js/3.85fec916.chunk.js",
+    "static/js/3.85fec916.chunk.js.map": "/static/js/3.85fec916.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.f4679da8.chunk.css.map": "/static/css/main.f4679da8.chunk.css.map",
-    "static/js/2.8c0a1a6d.chunk.js.LICENSE.txt": "/static/js/2.8c0a1a6d.chunk.js.LICENSE.txt",
+    "static/js/2.8d6431f9.chunk.js.LICENSE.txt": "/static/js/2.8d6431f9.chunk.js.LICENSE.txt",
+    "static/media/DroneImage.26824dc7.png": "/static/media/DroneImage.26824dc7.png",
     "static/media/LEDLightStripScheduler.e7f51a54.png": "/static/media/LEDLightStripScheduler.e7f51a54.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.fce28488.js",
-    "static/js/2.8c0a1a6d.chunk.js",
+    "static/js/runtime-main.78d22d9f.js",
+    "static/js/2.8d6431f9.chunk.js",
     "static/css/main.f4679da8.chunk.css",
-    "static/js/main.be816925.chunk.js"
+    "static/js/main.685a5c20.chunk.js"
   ]
 }
