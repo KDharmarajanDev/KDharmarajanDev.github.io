@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import ProjectCard from './ProjectCard'
 import LEDLightStripScheduler from './assets/LEDLightStripScheduler.png'
 import TitleFeature from './TitleFeature';
+import ContactSegment from './ContactSegment';
 
 const projects = [
   {
@@ -30,7 +31,10 @@ const projects = [
 function App() {
   return (
     <div id="app">
-      <h1 id="title">Karthik Dharmarajan</h1>
+      <div>
+        <h1 id="title">Karthik Dharmarajan</h1>
+        <ContactSegment/>
+      </div>
       <div id="intro-section">
       </div>
       <TitleFeature/>
@@ -39,8 +43,7 @@ function App() {
           <Grid container id="grid-container" justify="space-between" spacing={5} wrap="wrap" direction="row">
             {projects.map(project => (
               <Grid xs={12} md={4} item>
-                <ProjectCard name={project.name} image={project.image} link={project.link} description={project.description}>
-                </ProjectCard>
+                <ProjectCard name={project.name} image={project.image} link={project.link} description={project.description}/>
               </Grid>
             ))}
           </Grid>
