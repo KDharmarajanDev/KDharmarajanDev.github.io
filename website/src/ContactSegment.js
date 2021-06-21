@@ -25,21 +25,25 @@ const useStyles = makeStyles({
 export default function ContactSegment(props) {
     const classes = useStyles();
 
-    const clickCallback = () => {
+    const clickCallbackLinkedIn = () => {
+        window.open('https://www.linkedin.com/in/karthik-dharmarajan/');
+    };
 
+    const clickCallbackGitHub = () => {
+        window.open('https://github.com/KDharmarajanDev/');
     };
 
     return (<Grid container id="contact-segment-container" justify="space-between" spacing={5} wrap="wrap" direction="row">
                 <Grid xs={12} sm={6} md={3} item>
                     <Card key="LinkedInButton" className={classes.root}>
-                        <IconButton className={classes.button} onClick={clickCallback}>
+                        <IconButton className={classes.button} onClick={clickCallbackLinkedIn}>
                             <LinkedInIcon/>
                         </IconButton>
                     </Card >
                 </Grid>
                 <Grid xs={6} md={3} item>
                     <Card key="GitHubButton" className={classes.root}>
-                        <IconButton className={classes.button} onClick={clickCallback}>
+                        <IconButton className={classes.button} onClick={clickCallbackGitHub}>
                             <GitHubIcon/>
                         </IconButton>
                     </Card>
@@ -47,7 +51,7 @@ export default function ContactSegment(props) {
                 <Grid xs={6} md={3} item>
                     <Card key="ResumeButton" className={classes.root}>
                         <Button variant="outlined" className={classes.button} 
-                            onClick={clickCallback}>
+                            onClick={clickCallbackGitHub}>
                             Resume
                         </Button>
                     </Card>
