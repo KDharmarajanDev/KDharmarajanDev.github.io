@@ -68,3 +68,7 @@ body {
   font-family: 'Alegreya', serif;
   text-align: center;
 }
+
+#contact-segment-container {
+  margin-bottom: 10px;
+}
