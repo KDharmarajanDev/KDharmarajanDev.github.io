@@ -13,7 +13,7 @@ const useStyles = makeStyles({
       "border-radius": "10px",
       height: "fit-content",
       padding: 10,
-      "background-color": "#2E9CCA",
+      "background-color": "#240090",
     },
     media: {
       objectFit: 'contain',
