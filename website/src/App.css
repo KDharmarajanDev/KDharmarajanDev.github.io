@@ -27,6 +27,7 @@ body {
 
 #intro-section {
   background-color: #2E9CCA;
+  padding: 10px;
 }
 
 #title-feature {
@@ -71,4 +72,19 @@ body {
 
 #contact-segment-container {
   margin-bottom: 10px;
+}
+
+#about-me-title {
+  text-align: center;
+  color: #FFFFFF;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+#about-description {
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 20px;
 }

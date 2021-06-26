@@ -2,7 +2,6 @@ import './App.css';
 import Grid from '@material-ui/core/Grid';
 import ProjectCard from './ProjectCard'
 import LEDLightStripScheduler from './assets/LEDLightStripScheduler.png'
-import TitleFeature from './TitleFeature';
 import ContactSegment from './ContactSegment';
 
 const projects = [
@@ -36,8 +35,11 @@ function App() {
         <ContactSegment/>
       </div>
       <div id="intro-section">
+        <h2 id="about-me-title">About Me</h2>
+        <p id="about-description">
+        I'm a UC Berkeley student studying electrical engineering and computer science with a passion for autonomous systems and intelligent robotics.
+        </p>
       </div>
-      <TitleFeature/>
       <div id="project-section">
           <h2 id="projects-title">Projects</h2>
           <Grid container id="grid-container" justify="space-between" spacing={5} wrap="wrap" direction="row">
