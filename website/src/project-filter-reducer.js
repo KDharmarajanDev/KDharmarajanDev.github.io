@@ -5,7 +5,7 @@ const initialState = {
 const projectFilterReducer = (state = initialState, action) => {
     switch (action.type) {
         case "remove":
-            returnObject = {
+            const returnObject = {
                 technologies: state.technologies
             };
             returnObject.technologies.delete(action.payload);

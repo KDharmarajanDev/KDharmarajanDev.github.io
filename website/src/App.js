@@ -10,20 +10,23 @@ const projects = [
     image: LEDLightStripScheduler,
     link: "https://github.com/KDharmarajanDev/led-light-strip-android-app",
     description: "LED Light Strip Scheduler is a simple and powerful application on the " 
-    + "Android operating system that allows users to control an Arduino operating RGB LED Strips with over one billion possible sequences."
+    + "Android operating system that allows users to control an Arduino operating RGB LED Strips with over one billion possible sequences.",
+    technologies: ["C++", "Java"]
   },
   {
     name: "Knot Visualizer",
     image: "./assets/LEDLightStripScheduler.png",
     link: "https://github.com/KDharmarajanDev/knot-visualizer-app",
     description: "Knot Visualizer is an iOS application fueled by ARKit that displays the progression of knot tying in "
-    + "one's environment with the goal of educating the end user."
+    + "one's environment with the goal of educating the end user.",
+    technologies: ["Swift"]
   },
   {
     name: "Drone Control Web Server",
     image: "./assets/LEDLightStripScheduler.png",
     link: "https://github.com/KDharmarajanDev/drone-control-web-server",
-    description: "Drone Control Web Server is a modular full-stack application that allows for ssensor data streaming and data plotting."
+    description: "Drone Control Web Server is a modular full-stack application that allows for ssensor data streaming and data plotting.",
+    technologies: ["React", "Node.JS", "ROS"]
   }
 ]
 
@@ -44,10 +47,11 @@ function App() {
       </div>
       <div id="project-section">
           <h2 id="projects-title">Projects</h2>
-          <Grid container id="grid-container" justify="space-between" spacing={5} wrap="wrap" direction="row">
+          <Grid container id="grid-container" spacing={5} wrap="wrap" direction="row" justify="flex-start">
             {projects.map(project => (
-              <Grid xs={12} md={4} item>
-                <ProjectCard name={project.name} image={project.image} link={project.link} description={project.description}/>
+              <Grid xs={12} md={4} item justify="flex-start">
+                <ProjectCard name={project.name} image={project.image} link={project.link} description={project.description}
+                             technologies={project.technologies}/>
               </Grid>
             ))}
           </Grid>
