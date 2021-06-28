@@ -38,6 +38,8 @@ function App() {
         <h2 id="about-me-title">About Me</h2>
         <p id="about-description">
         I'm a UC Berkeley student studying electrical engineering and computer science with a passion for autonomous systems and intelligent robotics.
+        <br></br>
+        I enjoy creating software solutions that are intuitive and efficient.
         </p>
       </div>
       <div id="project-section">
