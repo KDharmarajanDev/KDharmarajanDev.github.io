@@ -3,6 +3,8 @@ import Grid from '@material-ui/core/Grid';
 import ProjectCard from './ProjectCard'
 import LEDLightStripScheduler from './assets/LEDLightStripScheduler.png'
 import ContactSegment from './ContactSegment';
+import { initialState } from './project-filter-reducer';
+import TechnologyButton from './technology-button';
 
 const projects = [
   {
@@ -44,6 +46,13 @@ function App() {
         <br></br>
         I enjoy creating software solutions that are intuitive and efficient.
         </p>
+        <h3 id="languages-title">Languages and Technologies</h3>
+        <Grid container id="grid-container" spacing={5} wrap="wrap" direction="row" justify="flex-start">
+          {[...initialState.technologies].map(name => (
+              <TechnologyButton name={name}></TechnologyButton>
+            ))
+          }
+        </Grid>
       </div>
       <div id="project-section">
           <h2 id="projects-title">Projects</h2>
