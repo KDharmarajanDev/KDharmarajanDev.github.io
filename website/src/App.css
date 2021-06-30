@@ -28,17 +28,7 @@ body {
 #intro-section {
   background-color: #190061;
   padding: 10px;
-  height: max-content;
-}
-
-#title-feature {
-  height: 400px;
-  width: 100%;
-  left: 0; 
-  background-color: #AAABB8;
-  border: 0;
-  padding: 0;
-  margin: 0;
+  height: 300px;
 }
 
 #project-section {
@@ -94,4 +84,5 @@ body {
   color: white;
   font-family: 'Playfair Display', serif;
   font-size: 24px;
+  margin-bottom: 40px;
 }
