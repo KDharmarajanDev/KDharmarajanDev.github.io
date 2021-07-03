@@ -1,5 +1,5 @@
 export const initialState = {
-    technologies: new Set(["Python", "Java", "C++", "Swift", "React", "Node.JS"])
+    technologies: new Set(["Python", "Java", "C++", "Swift", "React", "Node.JS", "ROS"])
 };
 
 const projectFilterReducer = (state = initialState, action) => {
