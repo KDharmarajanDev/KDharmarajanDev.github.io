@@ -30,7 +30,8 @@ const useStyles = makeStyles({
     description: {
       color: "white",
       textAlign: "center",
-      marginTop: 10
+      marginTop: 10,
+      padding: "10px"
     }
   });
 
@@ -62,12 +63,14 @@ export default function ProjectCard(props) {
                 <Typography component="p" className={classes.description}>
                   {props.description}
                 </Typography>
-                <CardActions>
-                  <Button variant="outlined" className={classes.button} 
-                    startIcon={<GitHubIcon/>} onClick={clickCallback}>
-                    Code
-                  </Button>
-                </CardActions>
+                {props.link &&
+                  <CardActions>
+                    <Button variant="outlined" className={classes.button} 
+                      startIcon={<GitHubIcon/>} onClick={clickCallback}>
+                      Code
+                    </Button>
+                    </CardActions>
+                }
               </Card>
             </Collapse>);
 }  

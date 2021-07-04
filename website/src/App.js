@@ -2,6 +2,7 @@ import './App.css';
 import Grid from '@material-ui/core/Grid';
 import ProjectCard from './ProjectCard'
 import LEDLightStripScheduler from './assets/LEDLightStripScheduler.png'
+import CoinConnect from './assets/CoinConnect.png'
 import ContactSegment from './ContactSegment';
 import { initialState } from './project-filter-reducer';
 import TechnologyButton from './technology-button';
@@ -29,6 +30,13 @@ const projects = [
     link: "https://github.com/KDharmarajanDev/drone-control-web-server",
     description: "Drone Control Web Server is a modular full-stack application that allows for ssensor data streaming and data plotting.",
     technologies: ["React", "Node.JS", "ROS"]
+  },
+  {
+    name: "CoinConnect",
+    image: CoinConnect,
+    description: "CoinConnect is a Discord bot that is a centralized means of managing cryptocurrency portfolios across various crypto exchanges. This bot utilizes "
+                  + "The bot supports asset selling/buying, price data gathering, and showing the portfolio valuation. The GitHub code is not public.",
+    technologies: ["Python"]
   }
 ]
 
@@ -56,7 +64,7 @@ function App() {
       </div>
       <div id="project-section">
           <h2 id="projects-title">Projects</h2>
-          <Grid container id="grid-container" spacing={5} wrap="wrap" direction="row" justify="flex-start">
+          <Grid container id="grid-container" spacing={5} wrap="wrap" direction="row" justify="center">
             {projects.map(project => (
               <Grid xs={12} md={4} item justify="flex-start">
                 <ProjectCard name={project.name} image={project.image} link={project.link} description={project.description}
