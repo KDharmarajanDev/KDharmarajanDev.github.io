@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.aebf9878.chunk.css",
-    "main.js": "/static/js/main.e2c17055.chunk.js",
-    "main.js.map": "/static/js/main.e2c17055.chunk.js.map",
+    "main.js": "/static/js/main.f1221bd3.chunk.js",
+    "main.js.map": "/static/js/main.f1221bd3.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d7efb473.js",
     "runtime-main.js.map": "/static/js/runtime-main.d7efb473.js.map",
     "static/js/2.5a411a35.chunk.js": "/static/js/2.5a411a35.chunk.js",
@@ -12,6 +12,7 @@
     "index.html": "/index.html",
     "static/css/main.aebf9878.chunk.css.map": "/static/css/main.aebf9878.chunk.css.map",
     "static/js/2.5a411a35.chunk.js.LICENSE.txt": "/static/js/2.5a411a35.chunk.js.LICENSE.txt",
+    "static/media/CoinConnect.8e54a28d.png": "/static/media/CoinConnect.8e54a28d.png",
     "static/media/Dharmarajan_Karthik_Resume.77eb2e08.pdf": "/static/media/Dharmarajan_Karthik_Resume.77eb2e08.pdf",
     "static/media/LEDLightStripScheduler.e7f51a54.png": "/static/media/LEDLightStripScheduler.e7f51a54.png"
   },
@@ -19,6 +20,6 @@
     "static/js/runtime-main.d7efb473.js",
     "static/js/2.5a411a35.chunk.js",
     "static/css/main.aebf9878.chunk.css",
-    "static/js/main.e2c17055.chunk.js"
+    "static/js/main.f1221bd3.chunk.js"
   ]
 }
