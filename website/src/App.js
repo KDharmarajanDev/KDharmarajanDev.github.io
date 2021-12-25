@@ -6,6 +6,7 @@ import CoinConnect from './assets/CoinConnect.png'
 import ContactSegment from './ContactSegment';
 import { initialState } from './project-filter-reducer';
 import TechnologyButton from './technology-button';
+import FooterAnimation from './FooterAnimation';
 
 const projects = [
   {
@@ -73,6 +74,7 @@ function App() {
             ))}
           </Grid>
       </div>
+      <FooterAnimation/>
     </div>
   );
 }
