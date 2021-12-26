@@ -40,6 +40,12 @@ class PowerNode extends Component {
         this.isEmptyNode = true;
         if (this.neighbors.length > 0) {
             this.targetNeighbor = this.neighbors[Math.floor(Math.random() * this.neighbors.length)];
+            if (!this.targetNeighbor.current.isEmptyNode) {
+                setTimeout(() => {
+                    this.transitionToEmpty();
+                }, 500);
+                return;
+            }
             this.targetNeighbor.current.transitionToFull();
         }
         this.startTransition();
@@ -194,7 +200,7 @@ class Tesselation extends Component {
     }
 
     render () {
-        for (let j = 0; j < this.root3 * this.props.height / this.props.spacing - 1; j++) {
+        for (let j = 0; j < this.root3 * this.props.height / this.props.spacing - 3; j++) {
             if (j % 2 == 0) {
                 for (let i = 0; i < this.props.width / this.props.spacing; i++) {
                     const x = i * this.props.spacing + this.props.xOffset;
