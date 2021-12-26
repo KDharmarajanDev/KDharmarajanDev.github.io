@@ -8,6 +8,8 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
 import Collapse from '@material-ui/core/Collapse';
+import WebAssetIcon from '@material-ui/icons/WebAsset';
+import { useCallback } from 'react';
 
 const useStyles = makeStyles({
     root: {
@@ -15,7 +17,7 @@ const useStyles = makeStyles({
       "border-radius": "10px",
       height: "fit-content",
       padding: 10,
-      "background-color": "#240090",
+      "background-color": "#61892F",
     },
     media: {
       objectFit: 'contain',
@@ -32,6 +34,10 @@ const useStyles = makeStyles({
       textAlign: "center",
       marginTop: 10,
       padding: "10px"
+    },
+    buttonContainer: {
+      display: "flex",
+      justifyContent: "center"
     }
   });
 
@@ -49,9 +55,13 @@ function containsAnyItem(firstSet, secondSet) {
 export default function ProjectCard(props) {
     const classes = useStyles();
 
-    const clickCallback = () => {
+    const clickCallback = useCallback(() => {
       window.open(props.link)
-    }
+    }, [props.link]);
+
+    const websiteCallback = useCallback(() => {
+      window.open(props.website)
+      }, [props.website]);
 
     const technologies = useSelector(selectTechnologies);
     const hasValidTechnology = containsAnyItem(props.technologies, technologies);
@@ -63,14 +73,24 @@ export default function ProjectCard(props) {
                 <Typography component="p" className={classes.description}>
                   {props.description}
                 </Typography>
-                {props.link &&
-                  <CardActions>
-                    <Button variant="outlined" className={classes.button} 
-                      startIcon={<GitHubIcon/>} onClick={clickCallback}>
-                      Code
-                    </Button>
+                <div className={classes.buttonContainer}>
+                  {props.link &&
+                    <CardActions>
+                      <Button variant="outlined" className={classes.button} 
+                        startIcon={<GitHubIcon/>} onClick={clickCallback}>
+                        Code
+                      </Button>
                     </CardActions>
-                }
+                  }
+                  {props.website &&
+                    <CardActions>
+                      <Button variant="outlined" className={classes.button} 
+                        startIcon={<WebAssetIcon/>} onClick={websiteCallback}>
+                        Website
+                      </Button>
+                    </CardActions>
+                  }
+                </div>
               </Card>
             </Collapse>);
 }  

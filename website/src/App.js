@@ -1,12 +1,13 @@
 import './App.css';
 import Grid from '@material-ui/core/Grid';
-import ProjectCard from './ProjectCard'
-import LEDLightStripScheduler from './assets/LEDLightStripScheduler.png'
-import CoinConnect from './assets/CoinConnect.png'
+import ProjectCard from './ProjectCard';
+import LEDLightStripScheduler from './assets/LEDLightStripScheduler.png';
+import CoinConnect from './assets/CoinConnect.png';
 import ContactSegment from './ContactSegment';
 import { initialState } from './project-filter-reducer';
 import TechnologyButton from './technology-button';
 import FooterAnimation from './FooterAnimation';
+import SandboxImage from './assets/Sandbox.jpeg';
 
 const projects = [
   {
@@ -38,6 +39,14 @@ const projects = [
     description: "CoinConnect is a Discord bot that is a centralized means of managing cryptocurrency portfolios across various crypto exchanges. This bot utilizes "
                   + "The bot supports asset selling/buying, price data gathering, and showing the portfolio valuation. The GitHub code is not public.",
     technologies: ["Python"]
+  },
+  {
+    name: "Sandbox",
+    image: SandboxImage,
+    link: "https://github.com/shreystechtips/106a-final-project",
+    website: "https://sandbox-106a.weebly.com/",
+    description: "Test",
+    technologies: ["Python", "React"]
   }
 ]
 
@@ -69,7 +78,7 @@ function App() {
             {projects.map(project => (
               <Grid xs={12} md={4} item justify="flex-start">
                 <ProjectCard name={project.name} image={project.image} link={project.link} description={project.description}
-                             technologies={project.technologies}/>
+                             technologies={project.technologies} website={project.website}/>
               </Grid>
             ))}
           </Grid>

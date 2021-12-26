@@ -18,7 +18,7 @@ const useStyles = makeStyles({
       marginLeft: 'auto',
       marginRight: 'auto',
       borderColor: 'white',
-      color: '#190061',
+      color: '#61892F',
       border: 'solid',
       borderColor: 'white',
       borderRadius: "10px",

@@ -3,7 +3,7 @@ import { Stage, Graphics, Container } from '@inlet/react-pixi'
 
 export default function FooterAnimation (props) {
     return (
-    <Stage height={300} width={window.innerWidth}>
+    <Stage height={300} width={window.innerWidth} options={{ backgroundColor: 0x222629}}>
         <Tesselation height={300} width={window.innerWidth} spacing={60} xOffset={30} yOffset={30}/>
     </Stage>
     )
@@ -60,7 +60,7 @@ class PowerNode extends Component {
         if (!this.isEmptyNode) {
             setTimeout(() => {
                 this.transitionToEmpty();
-            }, 3000);
+            }, Math.random() * 3000 + 1000);
         }
     }
 
@@ -82,13 +82,13 @@ class PowerNode extends Component {
                     } else if (!this.isEmptyNode) {
                         fillRadius = outerCircleRadius;
                     }
-                    g.beginFill(0xed7207, 1);
+                    g.beginFill(0x86C232, 1);
                     g.drawCircle(this.props.x, this.props.y, outerCircleRadius);
                     g.endFill();
-                    g.beginFill(0x000000, 1);
+                    g.beginFill(0x222629, 1);
                     g.drawCircle(this.props.x, this.props.y, innerCircleRadius);
                     g.endFill();
-                    g.beginFill(0xed7207, 1);
+                    g.beginFill(0x86C232, 1);
                     g.drawCircle(this.props.x, this.props.y, fillRadius);
                     g.endFill();
                 }}/>
@@ -105,8 +105,8 @@ class PowerNode extends Component {
 function PowerTransferBeam (props) {
     const draw = useCallback(g => {
         g.clear();
-        g.beginFill(0xed7207, 1);
-        g.lineStyle(4, 0xed7207, 1);
+        g.beginFill(0x86C232, 1);
+        g.lineStyle(4, 0x86C232, 1);
         g.moveTo(props.x, props.y);
         g.lineTo(props.endX, props.endY);
         g.endFill();
@@ -186,8 +186,11 @@ class Tesselation extends Component {
                 nodeRef.current.neighbors.push(this.powerNodeRefs[newNeighbor]);
             }
             newNeighbor = null;
+
+            if (Math.random() < 0.3) {
+                nodeRef.current.transitionToFull();
+            }
         }
-        this.powerNodeRefs[0].current.transitionToFull();
     }
 
     render () {
