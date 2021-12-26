@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Open+Sans&family=Oswald&display=swap');
 
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
 :root {
   --background: #222629;
   --primary: #474B4F;

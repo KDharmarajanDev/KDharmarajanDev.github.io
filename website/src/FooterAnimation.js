@@ -19,6 +19,7 @@ class PowerNode extends Component {
         this.isEmptyNode = true;
         this.targetNeighbor = null;
         this.update = this.update.bind(this);
+        this.currTransitionTimeout = null;
     }
 
     update() {
@@ -51,6 +52,17 @@ class PowerNode extends Component {
         this.startTransition();
     }
 
+    stopRunning() {
+        this.isEmptyNode = true;
+        this.setState({
+            'transitionTimer': -1
+        });
+        this.stopTransition();
+        if (this.currTransitionTimeout) {
+            clearTimeout(this.currTransitionTimeout);
+        }
+    }
+
     startTransition() {
         this.setState({
             'transitionTimer': 1000
@@ -64,7 +76,7 @@ class PowerNode extends Component {
         clearInterval(this.timerId);
         this.timerId = null;
         if (!this.isEmptyNode) {
-            setTimeout(() => {
+            this.currTransitionTimeout = setTimeout(() => {
                 this.transitionToEmpty();
             }, Math.random() * 3000 + 1000);
         }
@@ -73,7 +85,7 @@ class PowerNode extends Component {
     render() {
         return (
             <Container>
-                <Graphics draw={(g) => {
+                <Graphics interactive={true} draw={(g) => {
                     g.clear();
                     const outerCircleRadius = 10;
                     const innerCircleRadius = 8;
@@ -97,7 +109,14 @@ class PowerNode extends Component {
                     g.beginFill(0x86C232, 1);
                     g.drawCircle(this.props.x, this.props.y, fillRadius);
                     g.endFill();
-                }}/>
+                }} pointerdown={(event) => {
+                        if (this.isEmptyNode) {
+                            this.transitionToFull();
+                        } else {
+                            this.stopRunning();
+                        }
+                    }
+                }/>
                 {
                     this.state.transitionTimer > 0 && this.isEmptyNode && <PowerTransferBeam x={this.props.x} y={this.props.y} 
                                                                                             endX={this.targetNeighbor.current.props.x} endY={this.targetNeighbor.current.props.y}/>
