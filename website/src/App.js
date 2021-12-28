@@ -65,14 +65,19 @@ function App() {
         <br></br>
         I enjoy creating software solutions that are intuitive and efficient.
         </p>
+      </div>
+      <div>
         <h3 id="languages-title">Languages and Technologies</h3>
-        <Grid container id="grid-container" spacing={5} wrap="wrap" direction="row" justify="flex-start">
+        <Grid container id="grid-container" align="center" justify="center" spacing={5} direction="row" alignItems="center">
           {[...initialState.technologies].map(name => (
-              <TechnologyButton name={name}></TechnologyButton>
+              <Grid xs={12} sm={6} md={1} item>
+                <TechnologyButton name={name}></TechnologyButton>
+              </Grid>
             ))
           }
         </Grid>
       </div>
+
       <div id="project-section">
           <h2 id="projects-title">Projects</h2>
           <Grid container id="grid-container" spacing={5} wrap="wrap" direction="row" justify="center">
