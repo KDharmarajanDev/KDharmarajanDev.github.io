@@ -84,7 +84,9 @@ function App() {
             ))}
           </Grid>
       </div>
-      <FooterAnimation/>
+      <div id="footer-div">
+        <FooterAnimation/>
+      </div>
     </div>
   );
 }
