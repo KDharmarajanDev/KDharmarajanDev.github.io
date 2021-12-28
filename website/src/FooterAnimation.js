@@ -3,8 +3,8 @@ import { Stage, Graphics, Container } from '@inlet/react-pixi'
 
 export default function FooterAnimation (props) {
     return (
-    <Stage height={300} width={window.innerWidth} options={{ backgroundColor: 0x222629}}>
-        <Tesselation height={300} width={window.innerWidth} spacing={60} xOffset={30} yOffset={30}/>
+    <Stage height={250} width={window.innerWidth} options={{ backgroundColor: 0x222629}}>
+        <Tesselation height={250} width={window.innerWidth} spacing={60}/>
     </Stage>
     )
 }
@@ -20,6 +20,7 @@ class PowerNode extends Component {
         this.targetNeighbor = null;
         this.update = this.update.bind(this);
         this.currTransitionTimeout = null;
+        this.emptyTransitionTimeout = null;
     }
 
     update() {
@@ -39,10 +40,11 @@ class PowerNode extends Component {
 
     transitionToEmpty() {
         this.isEmptyNode = true;
+        this.emptyTransitionTimeout = null;
         if (this.neighbors.length > 0) {
             this.targetNeighbor = this.neighbors[Math.floor(Math.random() * this.neighbors.length)];
             if (!this.targetNeighbor.current.isEmptyNode) {
-                setTimeout(() => {
+                this.emptyTransitionTimeout = setTimeout(() => {
                     this.transitionToEmpty();
                 }, 500);
                 return;
@@ -82,13 +84,23 @@ class PowerNode extends Component {
         }
     }
 
+    componentWillUnmount () {
+        if (this.currTransitionTimeout) {
+            clearTimeout(this.currTransitionTimeout);
+        }
+        if (this.emptyTransitionTimeout) {
+            clearTimeout(this.emptyTransitionTimeout);
+        }
+        clearInterval(this.timerId);
+    }
+
     render() {
         return (
             <Container>
                 <Graphics interactive={true} draw={(g) => {
                     g.clear();
-                    const outerCircleRadius = 10;
-                    const innerCircleRadius = 8;
+                    const outerCircleRadius = this.props.outerCircleRadius;
+                    const innerCircleRadius = this.props.innerCircleRadius;
                     let fillRadius = 0;
                     const duration = 1000;
                     if (this.state.transitionTimer > 0) {
@@ -145,13 +157,30 @@ class Tesselation extends Component {
 
     constructor (props) {
         super(props);
+        this.state = {
+            height: props.height,
+            width: props.width
+        }
+        this.resetVars();
+        this.root3 = Math.sqrt(3);
+        window.addEventListener("resize", this.debounce(this.handleResize, 500));
+    }
+
+    resetVars () {
         this.hexagons = [];
         this.powerNodeRefs = [];
         this.coordinateToIndex = new Map();
-        this.root3 = Math.sqrt(3);
     }
 
     componentDidMount() {
+        this.createGraphAndStartPower();
+    }
+
+    componentDidUpdate() {
+        this.createGraphAndStartPower();
+    }
+
+    createGraphAndStartPower () {
         for (let nodeRef of this.powerNodeRefs) {
             const x = nodeRef.current.props.x;
             const y = nodeRef.current.props.y;
@@ -218,25 +247,50 @@ class Tesselation extends Component {
         }
     }
 
+    debounce(fn, ms) {
+        let timer;
+        return _ => {
+            clearTimeout(timer);
+            timer = setTimeout(_ => {
+                timer = null;
+                fn.apply(this, arguments);
+            }, ms);
+        };
+    }
+
+    handleResize() {
+        this.setState({
+            width: window.innerWidth
+        });
+    }      
+
     render () {
-        for (let j = 0; j < this.root3 * this.props.height / this.props.spacing - 3; j++) {
+        this.resetVars();
+        const maxVerticesHeight = Math.floor((this.state.height - 15) / (this.root3 / 2 * this.props.spacing));
+        const maxVerticesShiftedWidth = Math.floor((this.state.width - 15) / this.props.spacing);
+        const maxVerticesWidth = maxVerticesShiftedWidth - 1;
+        const yOffset = (this.state.height - maxVerticesHeight * this.root3 / 2 * this.props.spacing) / 2;
+        const xOffset = (this.state.width - maxVerticesShiftedWidth * this.props.spacing) / 2 + this.props.spacing;
+        for (let j = 0; j < maxVerticesHeight; j++) {
             if (j % 2 == 0) {
-                for (let i = 0; i < this.props.width / this.props.spacing; i++) {
-                    const x = i * this.props.spacing + this.props.xOffset;
-                    const y = j * this.props.spacing * this.root3 / 2 + this.props.yOffset;
+                for (let i = 0; i < maxVerticesWidth; i++) {
+                    const x = i * this.props.spacing + xOffset;
+                    const y = j * this.props.spacing * this.root3 / 2 + yOffset;
                     this.powerNodeRefs.push(createRef());
-                    this.hexagons.push(<PowerNode key={"X: " + x.toString() + " Y: " + y.toString()} x={x} y={y} ref={this.powerNodeRefs[this.powerNodeRefs.length - 1]}/>);
+                    this.hexagons.push(<PowerNode key={"X: " + x.toString() + " Y: " + y.toString()} x={x} y={y} ref={this.powerNodeRefs[this.powerNodeRefs.length - 1]}
+                                            outerCircleRadius={10} innerCircleRadius={8}/>);
                     this.coordinateToIndex.set(JSON.stringify({
                         x: x,
                         y: y
                     }), this.powerNodeRefs.length - 1);
                 }
             } else {
-                for (let i = 0; i < this.props.width / this.props.spacing - 1; i++) {
-                    const x = i * this.props.spacing + this.props.spacing / 2 + this.props.xOffset;
-                    const y = j * this.props.spacing * this.root3 / 2 + this.props.yOffset;
+                for (let i = 0; i < maxVerticesShiftedWidth; i++) {
+                    const x = i * this.props.spacing - this.props.spacing / 2 + xOffset;
+                    const y = j * this.props.spacing * this.root3 / 2 + yOffset;
                     this.powerNodeRefs.push(createRef());
-                    this.hexagons.push(<PowerNode key={"X: " + x.toString() + " Y: " + y.toString()} x={x} y={y} ref={this.powerNodeRefs[this.powerNodeRefs.length - 1]}/>);
+                    this.hexagons.push(<PowerNode key={"X: " + x.toString() + " Y: " + y.toString()} x={x} y={y} ref={this.powerNodeRefs[this.powerNodeRefs.length - 1]}
+                                            outerCircleRadius={10} innerCircleRadius={8}/>);
                     this.coordinateToIndex.set(JSON.stringify({
                         x: x,
                         y: y

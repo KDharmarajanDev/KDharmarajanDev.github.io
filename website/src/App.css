@@ -12,8 +12,8 @@ html,body
 
 :root {
   --background: #222629;
-  --primary: #474B4F;
-  --tertiary: #6B6E70;
+  --primary: #222629;
+  --tertiary: #222629;
 }
 
 body {
