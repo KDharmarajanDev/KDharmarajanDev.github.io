@@ -41,11 +41,11 @@ const useStyles = makeStyles({
     }
   });
 
-const selectTechnologies = state => state.project.technologies;
+const selectTechnologies = state => state.project;
 
 function containsAnyItem(firstSet, secondSet) {
   for (const element of firstSet) {
-    if (secondSet.has(element)) {
+    if (secondSet[element]) {
       return true;
     }
   }

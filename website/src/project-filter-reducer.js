@@ -1,7 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const initialState = {
-    technologies: new Set(["Python", "Java", "C++", "Swift", "React", "Node.JS", "ROS"])
+    "Python": true,
+    "Java": true,
+    "C++": true,
+    "Swift": true,
+    "React": true,
+    "Node.JS": true,
+    "ROS": true
 };
 
 const projectSlice = createSlice({
@@ -9,11 +15,7 @@ const projectSlice = createSlice({
     initialState,
     reducers: {
       toggle(state, technology) {
-        if (state.technologies.has(technology)) {
-            state.technologies.delete(technology)
-        } else {
-            state.technologies.add(technology)
-        }
+        state[technology.payload] = !state[technology.payload]
       }
     },
 })  

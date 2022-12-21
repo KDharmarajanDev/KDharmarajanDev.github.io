@@ -23,8 +23,8 @@ function App() {
       <div id="project-section">
           <h2 id="projects-title">Projects</h2>
             <h3 id="languages-title">Languages and Technologies</h3>
-          <Grid container id="grid-container" align="center" justify="center" spacing={5} direction="row" alignItems="center">
-            {[...initialState.technologies].map(name => (
+          <Grid container id="grid-container" align="center" justifyContent="center" spacing={5} direction="row" alignItems="center">
+            {Object.keys(initialState).map(name => (
                 <Grid xs={12} sm={6} md={1} item>
                   <TechnologyButton name={name}></TechnologyButton>
                 </Grid>

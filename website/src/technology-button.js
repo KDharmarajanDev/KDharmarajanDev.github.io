@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     }
   });
   
-const selectTechnologies = state => state.project.technologies;
+const selectTechnologies = state => state.project;
 
 export default function TechnologyButton(props) {
     const classes = useStyles();
@@ -40,7 +40,7 @@ export default function TechnologyButton(props) {
     };
 
     const technologies = useSelector(selectTechnologies);
-    return (<ButtonBase onClick={clickHandler} className={technologies.has(props.name) ? classes.buttonUsed : classes.button}>
+    return (<ButtonBase onClick={clickHandler} className={technologies[props.name] ? classes.buttonUsed : classes.button}>
                 {props.name}
             </ButtonBase>);
 }  
