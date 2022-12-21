@@ -5,11 +5,12 @@ import ContactSegment from './ContactSegment';
 import { initialState } from './project-filter-reducer';
 import TechnologyButton from './technology-button';
 import { Introduction, projects } from './info';
-
+import TopBar from './top-bar';
 
 function App() {
   return (
     <div id="app">
+      <TopBar/>
       <div>
         <h1 id="title">Karthik Dharmarajan</h1>
         <ContactSegment/>

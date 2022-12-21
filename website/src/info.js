@@ -2,6 +2,24 @@ import SandboxImage from './assets/Sandbox.jpeg';
 import LEDLightStripScheduler from './assets/LEDLightStripScheduler.png';
 import CoinConnect from './assets/CoinConnect.png';
 
+export function Introduction (props) {
+    return (
+        <p id="about-description">
+        I'm a UC Berkeley student studying electrical engineering and computer science with a passion for autonomous systems and intelligent robotics.
+        <br></br>
+        I enjoy creating software solutions that are intuitive and efficient.
+        </p>
+    );
+}
+
+export const publications = [
+    {
+        title: "",
+        authors: [],
+        description: ""
+    },
+]
+
 export const projects = [
     {
         name: "LED Light Strip Scheduler",

@@ -1,22 +1,22 @@
+import { createSlice } from '@reduxjs/toolkit'
+
 export const initialState = {
     technologies: new Set(["Python", "Java", "C++", "Swift", "React", "Node.JS", "ROS"])
 };
 
-const projectFilterReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case "toggle":
-            const modifiedTechnologies = new Set(state.technologies);
-            if (state.technologies.has(action.payload)) {
-                modifiedTechnologies.delete(action.payload);
-            } else {
-                modifiedTechnologies.add(action.payload);
-            }
-            return {
-                technologies: modifiedTechnologies
-            };
-        default:
-            return state;
-    }
-}
+const projectSlice = createSlice({
+    name: 'project',
+    initialState,
+    reducers: {
+      toggle(state, technology) {
+        if (state.technologies.has(technology)) {
+            state.technologies.delete(technology)
+        } else {
+            state.technologies.add(technology)
+        }
+      }
+    },
+})  
 
-export default projectFilterReducer;
+export const { toggle } = projectSlice.actions
+export default projectSlice.reducer;

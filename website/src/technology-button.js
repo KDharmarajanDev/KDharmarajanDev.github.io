@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { ButtonBase } from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
+import { toggle } from './project-filter-reducer';
 
 const useStyles = makeStyles({
     button: {
@@ -28,18 +29,17 @@ const useStyles = makeStyles({
     }
   });
   
-const selectTechnologies = state => state.technologies;
+const selectTechnologies = state => state.project.technologies;
 
 export default function TechnologyButton(props) {
     const classes = useStyles();
     const dispatch = useDispatch();
 
     const clickHandler = () => {
-        dispatch({type: "toggle", payload: props.name});
+        dispatch(toggle(props.name));
     };
 
     const technologies = useSelector(selectTechnologies);
-
     return (<ButtonBase onClick={clickHandler} className={technologies.has(props.name) ? classes.buttonUsed : classes.button}>
                 {props.name}
             </ButtonBase>);
