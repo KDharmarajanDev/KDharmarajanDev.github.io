@@ -1,38 +1,37 @@
-import { makeStyles } from '@material-ui/core/styles';
-import { ButtonBase } from '@material-ui/core';
+import { ButtonBase } from '@mui/material';
 import { useDispatch, useSelector } from "react-redux";
 import { toggle } from './project-filter-reducer';
+import { styled } from '@mui/system'
 
-const useStyles = makeStyles({
-    button: {
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      borderColor: 'white',
-      color: 'white',
-      border: 'solid',
-      borderColor: 'white',
-      borderRadius: "10px",
-      fontSize: "20px",
-      padding: "10px"
-    },
-    buttonUsed: {
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      borderColor: 'white',
-      color: '#61892F',
-      border: 'solid',
-      borderColor: 'white',
-      borderRadius: "10px",
-      fontSize: "20px",
-      padding: "10px",
-      backgroundColor: "white",
-    }
-  });
+const StyledButtonBase = styled(ButtonBase, {
+  shouldForwardProp: (prop) => prop !== 'isActive'
+})(({ theme, isActive }) => (
+  isActive ? {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    color: '#61892F',
+    border: 'solid',
+    borderColor: 'white',
+    borderRadius: "10px",
+    fontSize: "20px",
+    padding: "10px",
+    backgroundColor: "white",
+  } :
+  {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    borderColor: 'white',
+    color: 'white',
+    border: 'solid',
+    borderRadius: "10px",
+    fontSize: "20px",
+    padding: "10px"
+  }
+));
   
 const selectTechnologies = state => state.project;
 
 export default function TechnologyButton(props) {
-    const classes = useStyles();
     const dispatch = useDispatch();
 
     const clickHandler = () => {
@@ -40,7 +39,7 @@ export default function TechnologyButton(props) {
     };
 
     const technologies = useSelector(selectTechnologies);
-    return (<ButtonBase onClick={clickHandler} className={technologies[props.name] ? classes.buttonUsed : classes.button}>
+    return (<StyledButtonBase onClick={clickHandler} isActive={technologies[props.name]}>
                 {props.name}
-            </ButtonBase>);
+            </StyledButtonBase>);
 }  

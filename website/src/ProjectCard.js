@@ -1,7 +1,6 @@
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
-import { makeStyles } from '@mui/material/styles';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -10,36 +9,7 @@ import { useSelector } from 'react-redux';
 import Collapse from '@mui/material/Collapse';
 import WebAssetIcon from '@mui/icons-material/WebAsset';
 import { useCallback } from 'react';
-
-const useStyles = makeStyles({
-    root: {
-      border: "none",
-      "border-radius": "10px",
-      height: "fit-content",
-      padding: 10,
-      "background-color": "#61892F",
-    },
-    media: {
-      objectFit: 'contain',
-      height: '400px'
-    },
-    button: {
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      borderColor: 'white',
-      color: 'white'
-    },
-    description: {
-      color: "white",
-      textAlign: "center",
-      marginTop: 10,
-      padding: "10px"
-    },
-    buttonContainer: {
-      display: "flex",
-      justifyContent: "center"
-    }
-  });
+import { styled } from '@mui/system'
 
 const selectTechnologies = state => state.project;
 
@@ -51,10 +21,50 @@ function containsAnyItem(firstSet, secondSet) {
   }
   return false;
 }
+
+const StyledCard = styled(Card, {
+  shouldForwardProp: (_) => true
+})(({ theme }) => ({
+    border: "none",
+    "border-radius": "10px",
+    height: "fit-content",
+    padding: 10,
+    "background-color": "#61892F",
+}));
+
+const StyledCardMedia = styled(CardMedia, {
+  shouldForwardProp: (_) => true
+})(({ theme }) => ({
+  objectFit: 'contain',
+  height: '400px'
+}));
+
+const StyledButton = styled(Button, {
+  shouldForwardProp: (_) => true,
+})(({ theme }) => ({
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  borderColor: 'white',
+  color: 'white'
+}));
+
+const StyledDescription = styled(Typography, {
+  shouldForwardProp: (_) => true,
+})(({ theme }) => ({
+  color: "white",
+  textAlign: "center",
+  marginTop: 10,
+  padding: "10px"
+}));
+
+const ButtonContainer = styled('div', {
+  shouldForwardProp: (_) => true
+})(({ theme }) => ({
+  display: "flex",
+  justifyContent: "center"
+}));
   
 export default function ProjectCard(props) {
-    const classes = useStyles();
-
     const clickCallback = useCallback(() => {
       window.open(props.link)
     }, [props.link]);
@@ -67,30 +77,30 @@ export default function ProjectCard(props) {
     const hasValidTechnology = containsAnyItem(props.technologies, technologies);
 
     return (<Collapse in={hasValidTechnology} timeout={"auto"} unmountOnExit>
-              <Card className="project-container" className={classes.root} key={props.name}>
+              <StyledCard className="project-container" key={props.name}>
                 <CardHeader title={props.name} className="project-container-title"/>
-                <CardMedia className={classes.media} component="img" image={props.image}/>
-                <Typography component="p" className={classes.description}>
+                <StyledCardMedia component="img" image={props.image}/>
+                <StyledDescription component="p">
                   {props.description}
-                </Typography>
-                <div className={classes.buttonContainer}>
+                </StyledDescription>
+                <ButtonContainer>
                   {props.link &&
                     <CardActions>
-                      <Button variant="outlined" className={classes.button} 
+                      <StyledButton variant="outlined"
                         startIcon={<GitHubIcon/>} onClick={clickCallback}>
                         Code
-                      </Button>
+                      </StyledButton>
                     </CardActions>
                   }
                   {props.website &&
                     <CardActions>
-                      <Button variant="outlined" className={classes.button} 
+                      <StyledButton variant="outlined"
                         startIcon={<WebAssetIcon/>} onClick={websiteCallback}>
                         Website
-                      </Button>
+                      </StyledButton>
                     </CardActions>
                   }
-                </div>
-              </Card>
+                </ButtonContainer>
+              </StyledCard>
             </Collapse>);
 }  
