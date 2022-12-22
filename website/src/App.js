@@ -1,5 +1,5 @@
 import './App.css';
-import Grid from '@material-ui/core/Grid';
+import Grid from '@mui/material/Grid';
 import ProjectCard from './ProjectCard';
 import ContactSegment from './ContactSegment';
 import { initialState } from './project-filter-reducer';

@@ -1,14 +1,14 @@
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import { makeStyles } from '@material-ui/core/styles';
-import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import Typography from '@material-ui/core/Typography';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import { makeStyles } from '@mui/material/styles';
+import CardActions from '@mui/material/CardActions';
+import Button from '@mui/material/Button';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import Typography from '@mui/material/Typography';
 import { useSelector } from 'react-redux';
-import Collapse from '@material-ui/core/Collapse';
-import WebAssetIcon from '@material-ui/icons/WebAsset';
+import Collapse from '@mui/material/Collapse';
+import WebAssetIcon from '@mui/icons-material/WebAsset';
 import { useCallback } from 'react';
 
 const useStyles = makeStyles({

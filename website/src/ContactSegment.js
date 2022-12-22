@@ -1,5 +1,5 @@
 import Button from '@material-ui/core/Button';
-import GitHubIcon from '@material-ui/icons/GitHub';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
