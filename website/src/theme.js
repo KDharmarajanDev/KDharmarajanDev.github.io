@@ -1,18 +1,33 @@
-import { createTheme } from "@mui/system";
+import { createTheme } from "@mui/material/styles";
 
-export const light = createTheme({
-    palette: {
-        primary: {
-            main: red[500],
-        },      
+const baseTheme = createTheme({
+    typography: {
+        fontFamily: "'Playfair Display', serif"
     }
 })
 
-
-export const dark = createTheme({
+export const light = createTheme(baseTheme, {
     palette: {
+        mode: "light",
         primary: {
-            main: red[500],
-        },      
+            background: "#F2F2F2",
+            main: "#181818"
+        },
+        secondary: {
+            main: "#0077B6"
+        }
+    }
+})
+
+export const dark = createTheme(baseTheme, {
+    palette: {
+        mode: "dark",
+        primary: {
+            background: "#181818",
+            main: "#F2F2F2"
+        },
+        secondary: {
+            main: "#00B4D8"
+        }
     }
 })
