@@ -4,12 +4,13 @@ import ProjectCard from './ProjectCard';
 import ContactSegment from './ContactSegment';
 import { initialState } from './project-filter-reducer';
 import TechnologyButton from './technology-button';
-import { Introduction, projects } from './info';
+import { Introduction, projects, publications } from './info';
 import TopBar from './top-bar';
-import { Box, ThemeProvider } from '@mui/material';
+import { Box, ThemeProvider, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { light, dark } from './theme';
 import { styled } from '@mui/system';
+import PublicationCard from './publication-card';
 
 const selectTheme = (state) => state.theme.theme;
 
@@ -32,13 +33,16 @@ function App() {
             <h2 id="about-me-title">About Me</h2>
             <Introduction/>
           </div>
-
           <div id="publications">
-
+            <Typography variant="h2">Publications</Typography>
+            {publications.map(publication => (
+              <PublicationCard title={publication.title} arXiv={publication.arXiv} github={publication.github}
+                              tweet={publication.tweet} paper={publication.paper} authors={publication.authors}
+                              description={publication.description} conference={publication.conference}/>
+            ))}
           </div>
-
           <div id="project-section">
-              <h2 id="projects-title">Projects</h2>
+            <Typography variant="h2">Projects</Typography>
                 <h3 id="languages-title">Languages and Technologies</h3>
               <Grid container id="grid-container" align="center" justifyContent="center" spacing={5} direction="row" alignItems="center">
                 {Object.keys(initialState).map(name => (

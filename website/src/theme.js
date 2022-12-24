@@ -2,7 +2,10 @@ import { createTheme } from "@mui/material/styles";
 
 const baseTheme = createTheme({
     typography: {
-        fontFamily: "'Playfair Display', serif"
+        fontFamily: "'Alegreya', serif",
+        h2: {
+            fontFamily: "'Playfair Display', serif",
+        }
     }
 })
 

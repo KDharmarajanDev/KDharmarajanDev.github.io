@@ -42,7 +42,8 @@ export default function TopBar() {
         <StyledAppBar position="fixed">
           <Toolbar     
             sx={{
-              justifyContent: "space-between"
+              justifyContent: "space-between",
+              minHeight: 70
             }}>
             <StyledGridContainer container spacing={12}
                 justifyContent="center"

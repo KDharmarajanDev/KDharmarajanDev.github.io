@@ -5,18 +5,32 @@ import CoinConnect from './assets/CoinConnect.png';
 export function Introduction (props) {
     return (
         <p id="about-description">
-        I'm a UC Berkeley student studying electrical engineering and computer science with a passion for autonomous systems and intelligent robotics.
-        <br></br>
-        I enjoy creating software solutions that are intuitive and efficient.
+        I'm a UC Berkeley undergraduate studying electrical engineering and computer science with a passion for autonomous systems and intelligent robotics. 
+        Currently, I'm in Prof. Ken Goldberg's AUTOLAB working on fog robotics, surgical robotics, real world reinforcement learning, and motion planning.
+        Previously, I have interned at Roblox and AWS. I will be interning at Databricks in Summer 2023.
         </p>
     );
 }
 
 export const publications = [
     {
-        title: "",
-        authors: [],
-        description: ""
+        title: "Fleet-DAgger: Interactive Robot Fleet Learning with Scalable Human Supervision",
+        authors: ["Ryan Hoque", "Lawrence Yunliang Chen", "Satvik Sharma", "Karthik Dharmarajan", 
+                    "Brijen Thananjeyan", "Pieter Abbeel", "Ken Goldberg"],
+        conference: "Conference on Robot Learning (CoRL) 2022",
+        description: "",
+        arXiv: "https://arxiv.org/abs/2206.14349",
+        github: "https://github.com/BerkeleyAutomation/ifl_benchmark",
+        tweet: "https://twitter.com/ryan_hoque/status/1542932195949432832?ref_src=twsrc%5Etfw"
+    },
+    {
+        title: "A Digital Twin Framework for Telesurgery in the Presence of Varying Network Quality of Service",
+        authors: ["Sophea Bonne*", "Will Panitch*", "Karthik Dharmarajan*", "Kishore Srinivas*", "Jerri-Lynn Kincade", 
+                "Thomas Low", "Bruce Knoth", "Cregg Cowan", "Danyal Fer", "Brijen Thananjeyan", "Justin Kerr", 
+                "Jeffrey Ichnowski", "Ken Goldberg"],
+        conference: "Conference on Automation Science and Engineering (CASE) 2022",
+        description: "",
+        paper: "https://ieeexplore.ieee.org/document/9926585"
     },
 ]
 
