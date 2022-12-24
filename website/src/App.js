@@ -20,28 +20,33 @@ const StyledDiv = styled('div')(({ theme }) => ({
   marginTop: '50px'
 }));
 
+const StyledBackground = styled(Box)(({theme}) => ({
+  backgroundColor: theme.palette.primary.background
+}));
+
 function App() {
 
   const theme = useSelector(selectTheme);
 
   return (
     <ThemeProvider theme={theme === "light" ? light : dark}>
-      <div id="app">
+      <StyledBackground>
         <TopBar/>
+        <ContactSegment/>
         <StyledDiv>
-          <div id="intro-section">
-            <h2 id="about-me-title">About Me</h2>
+          <Box id="about-me">
+            <Typography variant="h2">About Me</Typography>
             <Introduction/>
-          </div>
-          <div id="publications">
+          </Box>
+          <Box id="publications">
             <Typography variant="h2">Publications</Typography>
             {publications.map(publication => (
               <PublicationCard title={publication.title} arXiv={publication.arXiv} github={publication.github}
                               tweet={publication.tweet} paper={publication.paper} authors={publication.authors}
                               description={publication.description} conference={publication.conference}/>
             ))}
-          </div>
-          <div id="project-section">
+          </Box>
+          <Box id="projects">
             <Typography variant="h2">Projects</Typography>
                 <h3 id="languages-title">Languages and Technologies</h3>
               <Grid container id="grid-container" align="center" justifyContent="center" spacing={5} direction="row" alignItems="center">
@@ -56,9 +61,9 @@ function App() {
                     <ProjectCard name={project.name} image={project.image} link={project.link} description={project.description}
                                 technologies={project.technologies} website={project.website}/>
                 ))}
-          </div>
+          </Box>
         </StyledDiv>
-      </div>
+      </StyledBackground>
     </ThemeProvider>
   );
 }

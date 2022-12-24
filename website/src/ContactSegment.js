@@ -5,6 +5,8 @@ import Grid from '@mui/material/Grid';
 import { styled } from '@mui/system';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import resume from './assets/Dharmarajan_Karthik_Resume.pdf'
+import { Box } from '@mui/material';
+import CloseImage from './assets/CloseImage.jpg';
 
 const ContactSegmentButton = styled(Button, {
     shouldForwardProp: (_) => true
@@ -14,7 +16,7 @@ const ContactSegmentButton = styled(Button, {
         color: 'white'
     }));
 
-export default function ContactSegment(props) {
+function ContactButtons(props) {
     const clickCallbackLinkedIn = () => {
         window.open('https://www.linkedin.com/in/karthik-dharmarajan/');
     };
@@ -45,4 +47,28 @@ export default function ContactSegment(props) {
                     </ContactSegmentButton>
                 </Grid>
             </Grid>);
+}
+
+export default function ContactSegment(props) {
+    return (
+        <Box sx={{ 
+            position: "fixed",
+            marginRight: "80%",
+            marginTop: "50px",
+            }}>
+            <Box
+                component="img"
+                sx={{ 
+                    borderRadius: 5,
+                    height: 150,
+                    width: 150,
+                    maxHeight: { xs: 130, md: 150 },
+                    maxWidth: { xs: 130, md: 150 },
+                    }}
+                alt="Close up photo of Karthik."
+                src={CloseImage}
+            />
+            <ContactSegmentButton/>
+        </Box>
+    );
 }

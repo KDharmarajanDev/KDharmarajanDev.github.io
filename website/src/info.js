@@ -1,14 +1,15 @@
 import SandboxImage from './assets/Sandbox.jpeg';
 import LEDLightStripScheduler from './assets/LEDLightStripScheduler.png';
 import CoinConnect from './assets/CoinConnect.png';
+import { Typography } from '@mui/material';
 
 export function Introduction (props) {
     return (
-        <p id="about-description">
+        <Typography variant="p">
         I'm a UC Berkeley undergraduate studying electrical engineering and computer science with a passion for autonomous systems and intelligent robotics. 
         Currently, I'm in Prof. Ken Goldberg's AUTOLAB working on fog robotics, surgical robotics, real world reinforcement learning, and motion planning.
         Previously, I have interned at Roblox and AWS. I will be interning at Databricks in Summer 2023.
-        </p>
+        </Typography>
     );
 }
 
