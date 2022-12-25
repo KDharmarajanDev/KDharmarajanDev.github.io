@@ -7,40 +7,53 @@ import ReceiptIcon from '@mui/icons-material/Receipt';
 import resume from './assets/Dharmarajan_Karthik_Resume.pdf'
 import { Box } from '@mui/material';
 import CloseImage from './assets/CloseImage.jpg';
+import GoogleIcon from '@mui/icons-material/Google';
+import { useCallback } from 'react';
+import Typography from '@mui/material/Typography';
 
 const ContactSegmentButton = styled(Button, {
     shouldForwardProp: (_) => true
     })(({theme}) => ({
         margin: 'auto',
-        borderColor: 'white',
-        color: 'white'
+        color: theme.palette.text.main,
+        textTransform: 'none',
     }));
 
 function ContactButtons(props) {
-    const clickCallbackLinkedIn = () => {
+    const clickCallbackLinkedIn = useCallback(() => {
         window.open('https://www.linkedin.com/in/karthik-dharmarajan/');
-    };
+    }, []);
 
-    const clickCallbackGitHub = () => {
+    const clickCallbackGitHub = useCallback(() => {
         window.open('https://github.com/KDharmarajanDev/');
-    };
+    }, []);
 
-    const showResume = () => {
+    const showResume = useCallback(() => {
         window.open(resume);
-    }
+    }, []);
 
-    return (<Grid container id="contact-segment-container" align="center" justify="center" spacing={5} wrap="wrap" direction="row" alignItems="center">
-                <Grid xs={12} sm={6} md={3} item>
+    const clickCallbackGoogleScholar = useCallback(() => {
+        window.open("https://scholar.google.com/citations?user=V6e6hncAAAAJ");
+    }, []);
+
+    return (<Grid container id="contact-segment-container" align="center" justify="center" spacing={1} wrap="wrap" direction="row" alignItems="center">
+                <Grid item>
                     <ContactSegmentButton variant="outlined" onClick={clickCallbackLinkedIn} startIcon={<LinkedInIcon/>}>
                         LinkedIn
                     </ContactSegmentButton>
                 </Grid>
-                <Grid xs={6} md={3} item>
+                <Grid item>
                     <ContactSegmentButton variant="outlined" onClick={clickCallbackGitHub} startIcon={<GitHubIcon/>}>
                         GitHub
                     </ContactSegmentButton>
                 </Grid>
-                <Grid xs={6} md={3} item>
+                <Grid item>
+                    <ContactSegmentButton variant="outlined"
+                        onClick={clickCallbackGoogleScholar} startIcon={<GoogleIcon/>}>
+                        Google Scholar
+                    </ContactSegmentButton>
+                </Grid>
+                <Grid item>
                     <ContactSegmentButton variant="outlined"
                         onClick={showResume} startIcon={<ReceiptIcon/>}>
                         Resume
@@ -51,24 +64,40 @@ function ContactButtons(props) {
 
 export default function ContactSegment(props) {
     return (
-        <Box sx={{ 
-            position: "fixed",
-            marginRight: "80%",
-            marginTop: "50px",
+        <Grid container spacing={2} 
+            justifyContent="center"
+            alignItems="center"
+            direction="column"
+            sx={{
+                position: "fixed",
+                width: "25%",
+                padding: "10px"
             }}>
-            <Box
-                component="img"
-                sx={{ 
-                    borderRadius: 5,
-                    height: 150,
-                    width: 150,
-                    maxHeight: { xs: 130, md: 150 },
-                    maxWidth: { xs: 130, md: 150 },
-                    }}
-                alt="Close up photo of Karthik."
-                src={CloseImage}
-            />
-            <ContactSegmentButton/>
-        </Box>
+            <Grid item>
+                <Box
+                    component="img"
+                    sx={{ 
+                        borderRadius: 5,
+                        height: 150,
+                        width: 150,
+                        maxHeight: { xs: 130, md: 150 },
+                        maxWidth: { xs: 130, md: 150 },
+                        }}
+                    alt="Close up photo of Karthik."
+                    src={CloseImage}
+                />
+            </Grid>
+            <Grid item>
+                <Typography variant="h3" sx={{ 
+                    fontWeight: "bold",
+                    textAlign: "center"}}
+                >
+                    Karthik Dharmarajan
+                </Typography>
+            </Grid>
+            <Grid item>
+                <ContactButtons/>
+            </Grid>
+        </Grid>
     );
 }
