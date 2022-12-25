@@ -41,7 +41,7 @@ export const dark = createTheme(baseTheme, {
             background: "#181818",
         },
         secondary: {
-            main: "#00B4D8"
+            main: "#0D9FD9"
         },
         text: {
             main: "#F2F2F2",

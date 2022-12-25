@@ -17,6 +17,12 @@ const ContactSegmentButton = styled(Button, {
         margin: 'auto',
         color: theme.palette.text.main,
         textTransform: 'none',
+        border: '2px solid',
+        borderColor: theme.palette.secondary.main,
+        '&:hover': {
+            border: '1px solid',
+            borderColor: theme.palette.secondary.main  
+        }        
     }));
 
 function ContactButtons(props) {

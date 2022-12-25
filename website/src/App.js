@@ -51,11 +51,12 @@ function App() {
           </Box>
           <Box id="projects" sx={{ marginTop: 5 }}>
             <Typography variant="h2">Projects</Typography>
-                <h3 id="languages-title">Languages and Technologies</h3>
-              <Grid container id="grid-container" align="center" justifyContent="center" spacing={5} direction="row" alignItems="center">
+                <Typography variant="h4">Languages and Technologies</Typography>
+              <Grid container id="grid-container" align="center" justifyContent="center" spacing={1} direction="row" alignItems="center" 
+                sx={{ marginTop: 1, marginBottom: 3 }}>
                 {Object.keys(initialState).map(name => (
-                    <Grid xs={12} sm={6} md={1} item>
-                      <TechnologyButton name={name}></TechnologyButton>
+                    <Grid item>
+                      <TechnologyButton name={name}/>
                     </Grid>
                   ))
                 }

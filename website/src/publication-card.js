@@ -27,6 +27,12 @@ const StyledButton = styled(Button, {
 })(({ theme }) => ({
   color: theme.palette.text.main,
   textTransform: 'none',
+  border: '2px solid',
+  borderColor: theme.palette.secondary.main,
+  '&:hover': {
+    border: '1px solid',
+    borderColor: theme.palette.secondary.main  
+  }
 }));
 
 const StyledDescription = styled(Typography, {
@@ -191,12 +197,12 @@ export default function PublicationCard(props) {
                         <StyledDescription component="p" sx={{ fontStyle: 'italic' }}>
                             {props.conference}
                         </StyledDescription>
-                        <InfoButtons arXiv={props.arXiv} github={props.github}
-                              tweet={props.tweet} paper={props.paper} video={props.video}
-                              website={props.website}/>
                         <StyledDescription component="p">
                             {props.description}
                         </StyledDescription>
+                        <InfoButtons arXiv={props.arXiv} github={props.github}
+                              tweet={props.tweet} paper={props.paper} video={props.video}
+                              website={props.website}/>
                     </Grid>
                 </Grid>
             </StyledCard>

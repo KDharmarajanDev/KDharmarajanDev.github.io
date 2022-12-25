@@ -1,31 +1,38 @@
-import { ButtonBase } from '@mui/material';
+import { Button } from '@mui/material';
 import { useDispatch, useSelector } from "react-redux";
 import { toggle } from './project-filter-reducer';
 import { styled } from '@mui/system'
 
-const StyledButtonBase = styled(ButtonBase, {
+const StyledButtonBase = styled(Button, {
   shouldForwardProp: (prop) => prop !== 'isActive'
 })(({ theme, isActive }) => (
   isActive ? {
     marginLeft: 'auto',
     marginRight: 'auto',
-    color: '#61892F',
+    color: theme.palette.background.default,
     border: 'solid',
-    borderColor: 'white',
+    borderColor: theme.palette.secondary.main,
     borderRadius: "10px",
     fontSize: "20px",
     padding: "10px",
-    backgroundColor: "white",
+    backgroundColor: theme.palette.secondary.main,
+    textTransform: 'none',
+    '&:hover': {
+      color: theme.palette.secondary.main,
+      backgroundColor: theme.palette.background.default
+    }
   } :
   {
     marginLeft: 'auto',
     marginRight: 'auto',
-    borderColor: 'white',
-    color: 'white',
+    borderColor: theme.palette.secondary.main,
+    color: theme.palette.secondary.main,
     border: 'solid',
     borderRadius: "10px",
     fontSize: "20px",
-    padding: "10px"
+    padding: "10px",
+    backgroundColor: theme.palette.background.default,
+    textTransform: 'none',
   }
 ));
   
@@ -39,7 +46,7 @@ export default function TechnologyButton(props) {
     };
 
     const technologies = useSelector(selectTechnologies);
-    return (<StyledButtonBase onClick={clickHandler} isActive={technologies[props.name]}>
+    return (<StyledButtonBase onClick={clickHandler} isActive={technologies[props.name]} color="secondary">
                 {props.name}
             </StyledButtonBase>);
 }  
