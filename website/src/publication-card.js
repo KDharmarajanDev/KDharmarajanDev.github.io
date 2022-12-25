@@ -7,24 +7,18 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import Typography from '@mui/material/Typography';
 import WebAssetIcon from '@mui/icons-material/WebAsset'; 
 import ArticleIcon from '@mui/icons-material/Article';
-import { useCallback, useMemo } from 'react';
-import { styled } from '@mui/system'
+import { useCallback, useMemo, useState } from 'react';
+import { styled } from '@mui/system';
+import { Grid } from '@mui/material';
 
 const StyledCard = styled(Card, {
   shouldForwardProp: (_) => true
 })(({ theme }) => ({
     border: "none",
-    "border-radius": "10px",
     height: "fit-content",
     padding: 10,
-    "background-color": "#61892F",
-}));
-
-const StyledCardMedia = styled(CardMedia, {
-  shouldForwardProp: (_) => true
-})(({ theme }) => ({
-  objectFit: 'contain',
-  height: '400px'
+    backgroundColor: theme.palette.background.default,
+    boxShadow: "none"
 }));
 
 const StyledButton = styled(Button, {
@@ -72,7 +66,25 @@ function AuthorList(props) {
         </Typography>
     )
 }
+
+function ChangingCardMedia(props) {
+    const [isOver, setIsOver] = useState(false);
+
+    return (
+        <StyledCardMedia
+            component="img" src={isOver ? props.hoverImage: props.image}
+            onMouseOver={() => setIsOver(true)}
+            onMouseOut={() => setIsOver(false)}
+         />
+    )
+}
   
+const StyledCardMedia = styled(CardMedia, {
+    shouldForwardProp: (_) => true
+  })(({ theme }) => ({
+    objectFit: 'contain',
+  }));
+
 export default function PublicationCard(props) {
     const githubCallback = useCallback(() => {
       window.open(props.github)
@@ -96,58 +108,64 @@ export default function PublicationCard(props) {
 
     return (
             <StyledCard key={props.title}>
-                <CardHeader title={props.title}/>
-                {/* <StyledCardMedia component="img" image={props.image}/> */}
-                <AuthorList authors={props.authors}/>
-                <StyledDescription component="p">
-                    {props.conference}
-                </StyledDescription>
-                <ButtonContainer>
-                    {props.paper &&
-                    <CardActions>
-                        <StyledButton variant="outlined"
-                        startIcon={<ArticleIcon/>}
-                        onClick={paperCallback}>
-                        Paper
-                        </StyledButton>
-                    </CardActions>
-                    }
-                    {props.arXiv &&
-                    <CardActions>
-                        <StyledButton variant="outlined"
-                        onClick={arxivCallback}>
-                        arXiv
-                        </StyledButton>
-                    </CardActions>
-                    }
-                    {props.github &&
-                    <CardActions>
-                        <StyledButton variant="outlined"
-                        startIcon={<GitHubIcon/>} onClick={githubCallback}>
-                        Code
-                        </StyledButton>
-                    </CardActions>
-                    }
-                    {props.website &&
-                    <CardActions>
-                        <StyledButton variant="outlined"
-                        startIcon={<WebAssetIcon/>} onClick={websiteCallback}>
-                        Website
-                        </StyledButton>
-                    </CardActions>
-                    }
-                    {props.tweet &&
-                    <CardActions>
-                        <StyledButton variant="outlined"
-                        onClick={tweetCallback}>
-                        Tweet
-                        </StyledButton>
-                    </CardActions>
-                    }
-                </ButtonContainer>
-                <StyledDescription component="p">
-                    {props.description}
-                </StyledDescription>
+                <Grid container spacing={1}>
+                    <Grid item sm={6}>
+                        <ChangingCardMedia image={props.image} hoverImage={props.hoverImage}/>
+                    </Grid>
+                    <Grid item sm={6}>
+                        <CardHeader title={props.title}/>
+                        <AuthorList authors={props.authors}/>
+                        <StyledDescription component="p">
+                            {props.conference}
+                        </StyledDescription>
+                        <ButtonContainer>
+                            {props.paper &&
+                            <CardActions>
+                                <StyledButton variant="outlined"
+                                startIcon={<ArticleIcon/>}
+                                onClick={paperCallback}>
+                                Paper
+                                </StyledButton>
+                            </CardActions>
+                            }
+                            {props.arXiv &&
+                            <CardActions>
+                                <StyledButton variant="outlined"
+                                onClick={arxivCallback}>
+                                arXiv
+                                </StyledButton>
+                            </CardActions>
+                            }
+                            {props.github &&
+                            <CardActions>
+                                <StyledButton variant="outlined"
+                                startIcon={<GitHubIcon/>} onClick={githubCallback}>
+                                Code
+                                </StyledButton>
+                            </CardActions>
+                            }
+                            {props.website &&
+                            <CardActions>
+                                <StyledButton variant="outlined"
+                                startIcon={<WebAssetIcon/>} onClick={websiteCallback}>
+                                Website
+                                </StyledButton>
+                            </CardActions>
+                            }
+                            {props.tweet &&
+                            <CardActions>
+                                <StyledButton variant="outlined"
+                                onClick={tweetCallback}>
+                                Tweet
+                                </StyledButton>
+                            </CardActions>
+                            }
+                        </ButtonContainer>
+                        <StyledDescription component="p">
+                            {props.description}
+                        </StyledDescription>
+                    </Grid>
+                </Grid>
             </StyledCard>
             );
 }  

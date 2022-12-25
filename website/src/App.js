@@ -11,17 +11,18 @@ import { useSelector } from 'react-redux';
 import { light, dark } from './theme';
 import { styled } from '@mui/system';
 import PublicationCard from './publication-card';
+import CssBaseline from "@mui/material/CssBaseline";
 
 const selectTheme = (state) => state.theme.theme;
 
 const StyledDiv = styled('div')(({ theme }) => ({
-  marginRight: '20%',
-  marginLeft: '20%',
+  marginRight: '25%',
+  marginLeft: '25%',
   marginTop: '50px'
 }));
 
 const StyledBackground = styled(Box)(({theme}) => ({
-  backgroundColor: theme.palette.primary.background
+  color: theme.palette.text.main
 }));
 
 function App() {
@@ -30,23 +31,24 @@ function App() {
 
   return (
     <ThemeProvider theme={theme === "light" ? light : dark}>
+      <CssBaseline />
       <StyledBackground>
         <TopBar/>
         <ContactSegment/>
         <StyledDiv>
-          <Box id="about-me">
+          <Box id="about-me" sx={{ marginTop: 10 }}>
             <Typography variant="h2">About Me</Typography>
             <Introduction/>
           </Box>
-          <Box id="publications">
+          <Box id="publications" sx={{ marginTop: 5 }}>
             <Typography variant="h2">Publications</Typography>
             {publications.map(publication => (
               <PublicationCard title={publication.title} arXiv={publication.arXiv} github={publication.github}
                               tweet={publication.tweet} paper={publication.paper} authors={publication.authors}
-                              description={publication.description} conference={publication.conference}/>
+                              description={publication.description} conference={publication.conference} image={publication.image}/>
             ))}
           </Box>
-          <Box id="projects">
+          <Box id="projects" sx={{ marginTop: 5 }}>
             <Typography variant="h2">Projects</Typography>
                 <h3 id="languages-title">Languages and Technologies</h3>
               <Grid container id="grid-container" align="center" justifyContent="center" spacing={5} direction="row" alignItems="center">

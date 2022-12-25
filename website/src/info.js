@@ -1,13 +1,24 @@
 import SandboxImage from './assets/Sandbox.jpeg';
 import LEDLightStripScheduler from './assets/LEDLightStripScheduler.png';
 import CoinConnect from './assets/CoinConnect.png';
-import { Typography } from '@mui/material';
+import { Link, Typography } from '@mui/material';
+import { styled } from '@mui/system';
+import FleetDAgger from './assets/FleetDAgger.gif';
+import FleetDAggerFirst from './assets/FleetDAggerFirst.png';
+import DTFramework from './assets/DTFramework.png';
+
+export const StyledLink = styled(Link, {
+        shouldForwardProp: (prop) => true
+    })(({ theme }) => ({
+        color: theme.palette.text.link
+    }));
 
 export function Introduction (props) {
     return (
-        <Typography variant="p">
+        <Typography variant="p" color={"theme.palette.text.main"}>
         I'm a UC Berkeley undergraduate studying electrical engineering and computer science with a passion for autonomous systems and intelligent robotics. 
-        Currently, I'm in Prof. Ken Goldberg's AUTOLAB working on fog robotics, surgical robotics, real world reinforcement learning, and motion planning.
+        Currently, I'm in <StyledLink href="https://goldberg.berkeley.edu/" underline="hover">Prof. Ken Goldberg's</StyledLink> <StyledLink href="https://autolab.berkeley.edu/" underline="hover">AUTOLAB</StyledLink> working 
+        on fog robotics, surgical robotics, real world reinforcement learning, and motion planning.
         Previously, I have interned at Roblox and AWS. I will be interning at Databricks in Summer 2023.
         </Typography>
     );
@@ -22,7 +33,9 @@ export const publications = [
         description: "",
         arXiv: "https://arxiv.org/abs/2206.14349",
         github: "https://github.com/BerkeleyAutomation/ifl_benchmark",
-        tweet: "https://twitter.com/ryan_hoque/status/1542932195949432832?ref_src=twsrc%5Etfw"
+        tweet: "https://twitter.com/ryan_hoque/status/1542932195949432832?ref_src=twsrc%5Etfw",
+        image: FleetDAggerFirst,
+        hoverImage: FleetDAgger
     },
     {
         title: "A Digital Twin Framework for Telesurgery in the Presence of Varying Network Quality of Service",
@@ -31,7 +44,9 @@ export const publications = [
                 "Jeffrey Ichnowski", "Ken Goldberg"],
         conference: "Conference on Automation Science and Engineering (CASE) 2022",
         description: "",
-        paper: "https://ieeexplore.ieee.org/document/9926585"
+        paper: "https://ieeexplore.ieee.org/document/9926585",
+        image: DTFramework,
+        hoverImage: DTFramework,
     },
 ]
 
