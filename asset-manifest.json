@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.46c22850.chunk.css",
-    "main.js": "/static/js/main.00e70461.chunk.js",
-    "main.js.map": "/static/js/main.00e70461.chunk.js.map",
+    "main.css": "/static/css/main.e890b453.chunk.css",
+    "main.js": "/static/js/main.88a7ab78.chunk.js",
+    "main.js.map": "/static/js/main.88a7ab78.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.5c420404.js",
     "runtime-main.js.map": "/static/js/runtime-main.5c420404.js.map",
     "static/js/2.3fc86495.chunk.js": "/static/js/2.3fc86495.chunk.js",
     "static/js/2.3fc86495.chunk.js.map": "/static/js/2.3fc86495.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.46c22850.chunk.css.map": "/static/css/main.46c22850.chunk.css.map",
+    "static/css/main.e890b453.chunk.css.map": "/static/css/main.e890b453.chunk.css.map",
     "static/js/2.3fc86495.chunk.js.LICENSE.txt": "/static/js/2.3fc86495.chunk.js.LICENSE.txt",
     "static/media/CloseImage.460de98d.jpg": "/static/media/CloseImage.460de98d.jpg",
     "static/media/CoinConnect.8e54a28d.png": "/static/media/CoinConnect.8e54a28d.png",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.5c420404.js",
     "static/js/2.3fc86495.chunk.js",
-    "static/css/main.46c22850.chunk.css",
-    "static/js/main.00e70461.chunk.js"
+    "static/css/main.e890b453.chunk.css",
+    "static/js/main.88a7ab78.chunk.js"
   ]
 }
