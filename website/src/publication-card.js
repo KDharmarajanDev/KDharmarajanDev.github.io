@@ -1,7 +1,7 @@
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
-import CardActions from '@mui/material/CardActions';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 import Button from '@mui/material/Button';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Typography from '@mui/material/Typography';
@@ -16,7 +16,8 @@ const StyledCard = styled(Card, {
 })(({ theme }) => ({
     border: "none",
     height: "fit-content",
-    padding: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
     backgroundColor: theme.palette.background.default,
     boxShadow: "none"
 }));
@@ -24,26 +25,22 @@ const StyledCard = styled(Card, {
 const StyledButton = styled(Button, {
   shouldForwardProp: (_) => true,
 })(({ theme }) => ({
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  borderColor: 'white',
-  color: 'white'
+  color: theme.palette.text.main,
+  textTransform: 'none',
 }));
 
 const StyledDescription = styled(Typography, {
   shouldForwardProp: (_) => true,
 })(({ theme }) => ({
-  color: "white",
-  textAlign: "center",
-  marginTop: 10,
-  padding: "10px"
+  color: theme.palette.text.main,
+  paddingTop: 3,
+  paddingBottom: 3,
+  fontFamily: theme.typography.p.fontFamily
 }));
 
-const ButtonContainer = styled('div', {
-  shouldForwardProp: (_) => true
-})(({ theme }) => ({
-  display: "flex",
-  justifyContent: "center"
+const StyledCardTitle = styled(Typography)(({ theme }) => ({
+    color: theme.palette.text.main,
+    fontWeight: "bold"
 }));
 
 function AuthorList(props) {
@@ -57,13 +54,13 @@ function AuthorList(props) {
     }, [props.authors]);
 
     return (
-        <Typography>
+        <StyledDescription>
             { authorStringComponents[0] ? authorStringComponents[0] + ", " : "" }
             <strong>
                 { authorStringComponents[1] }
             </strong>
             { authorStringComponents[2] ? ", " + authorStringComponents[2] : "" }
-        </Typography>
+        </StyledDescription>
     )
 }
 
@@ -73,8 +70,8 @@ function ChangingCardMedia(props) {
     return (
         <StyledCardMedia
             component="img" src={isOver ? props.hoverImage: props.image}
-            onMouseOver={() => setIsOver(true)}
-            onMouseOut={() => setIsOver(false)}
+            onMouseEnter={() => setIsOver(true)}
+            onMouseLeave={() => setIsOver(false)}
          />
     )
 }
@@ -83,16 +80,17 @@ const StyledCardMedia = styled(CardMedia, {
     shouldForwardProp: (_) => true
   })(({ theme }) => ({
     objectFit: 'contain',
+    maxWidth: '200px'
   }));
 
-export default function PublicationCard(props) {
+function InfoButtons(props) {
     const githubCallback = useCallback(() => {
-      window.open(props.github)
+        window.open(props.github)
     }, [props.github]);
 
     const websiteCallback = useCallback(() => {
-      window.open(props.website)
-      }, [props.website]);
+    window.open(props.website)
+    }, [props.website]);
 
     const tweetCallback = useCallback(() => {
         window.open(props.tweet)
@@ -104,63 +102,94 @@ export default function PublicationCard(props) {
 
     const paperCallback = useCallback(() => {
         window.open(props.paper)
-    }, [props.paper]);
+    }, [props.paper]);  
+
+    const videoCallback = useCallback(() => {
+        window.open(props.video)
+    }, [props.video]);  
 
     return (
-            <StyledCard key={props.title}>
-                <Grid container spacing={1}>
-                    <Grid item sm={6}>
+        <Grid container 
+        spacing={1.5}
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        sx={{ marginTop: 0 }}>
+            {props.paper &&
+            <Grid item>
+                <StyledButton variant="outlined"
+                startIcon={<ArticleIcon/>}
+                onClick={paperCallback}>
+                Paper
+                </StyledButton>
+            </Grid>
+            }
+            {props.arXiv &&
+            <Grid item>
+                <StyledButton variant="outlined"
+                    onClick={arxivCallback}>
+                    arXiv
+                </StyledButton>
+            </Grid>
+            }
+            {props.github &&
+            <Grid item>
+                <StyledButton variant="outlined"
+                startIcon={<GitHubIcon/>} onClick={githubCallback}>
+                Code
+                </StyledButton>
+            </Grid>
+            }
+            {props.video &&
+            <Grid item>
+                <StyledButton variant="outlined"
+                startIcon={<YouTubeIcon/>} onClick={videoCallback}>
+                Video
+                </StyledButton>
+            </Grid>
+            }
+            {props.website &&
+            <Grid item>
+                <StyledButton variant="outlined"
+                startIcon={<WebAssetIcon/>} onClick={websiteCallback}>
+                Website
+                </StyledButton>
+            </Grid>
+            }
+            {props.tweet &&
+            <Grid item>
+                <StyledButton variant="outlined"
+                startIcon={<TwitterIcon/>} onClick={tweetCallback}>
+                Tweet
+                </StyledButton>
+            </Grid>
+            }
+        </Grid>
+    )
+}
+
+export default function PublicationCard(props) {
+
+    return (
+            <StyledCard key={props.title} elevation={0}>
+                <Grid container 
+                      spacing={1.5}
+                      direction="row"
+                      justifyContent="center"
+                      alignItems="flex-start"
+                    >
+                    <Grid item sm={3}>
                         <ChangingCardMedia image={props.image} hoverImage={props.hoverImage}/>
                     </Grid>
-                    <Grid item sm={6}>
-                        <CardHeader title={props.title}/>
+                    <Grid item sm={9}>
+                        <StyledCardTitle>
+                            {props.title}
+                        </StyledCardTitle>
                         <AuthorList authors={props.authors}/>
-                        <StyledDescription component="p">
+                        <StyledDescription component="p" sx={{ fontStyle: 'italic' }}>
                             {props.conference}
                         </StyledDescription>
-                        <ButtonContainer>
-                            {props.paper &&
-                            <CardActions>
-                                <StyledButton variant="outlined"
-                                startIcon={<ArticleIcon/>}
-                                onClick={paperCallback}>
-                                Paper
-                                </StyledButton>
-                            </CardActions>
-                            }
-                            {props.arXiv &&
-                            <CardActions>
-                                <StyledButton variant="outlined"
-                                onClick={arxivCallback}>
-                                arXiv
-                                </StyledButton>
-                            </CardActions>
-                            }
-                            {props.github &&
-                            <CardActions>
-                                <StyledButton variant="outlined"
-                                startIcon={<GitHubIcon/>} onClick={githubCallback}>
-                                Code
-                                </StyledButton>
-                            </CardActions>
-                            }
-                            {props.website &&
-                            <CardActions>
-                                <StyledButton variant="outlined"
-                                startIcon={<WebAssetIcon/>} onClick={websiteCallback}>
-                                Website
-                                </StyledButton>
-                            </CardActions>
-                            }
-                            {props.tweet &&
-                            <CardActions>
-                                <StyledButton variant="outlined"
-                                onClick={tweetCallback}>
-                                Tweet
-                                </StyledButton>
-                            </CardActions>
-                            }
-                        </ButtonContainer>
+                        <InfoButtons arXiv={props.arXiv} github={props.github}
+                              tweet={props.tweet} paper={props.paper} video={props.video}/>
                         <StyledDescription component="p">
                             {props.description}
                         </StyledDescription>

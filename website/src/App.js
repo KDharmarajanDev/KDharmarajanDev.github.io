@@ -45,7 +45,8 @@ function App() {
             {publications.map(publication => (
               <PublicationCard title={publication.title} arXiv={publication.arXiv} github={publication.github}
                               tweet={publication.tweet} paper={publication.paper} authors={publication.authors}
-                              description={publication.description} conference={publication.conference} image={publication.image}/>
+                              description={publication.description} conference={publication.conference} image={publication.image}
+                              hoverImage={publication.hoverImage} video={publication.video}/>
             ))}
           </Box>
           <Box id="projects" sx={{ marginTop: 5 }}>

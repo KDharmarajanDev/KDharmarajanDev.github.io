@@ -42,11 +42,12 @@ export const publications = [
         authors: ["Sophea Bonne*", "Will Panitch*", "Karthik Dharmarajan*", "Kishore Srinivas*", "Jerri-Lynn Kincade", 
                 "Thomas Low", "Bruce Knoth", "Cregg Cowan", "Danyal Fer", "Brijen Thananjeyan", "Justin Kerr", 
                 "Jeffrey Ichnowski", "Ken Goldberg"],
-        conference: "Conference on Automation Science and Engineering (CASE) 2022",
+        conference: "IEEE International Conference on Automation Science and Engineering (CASE) 2022",
         description: "",
         paper: "https://ieeexplore.ieee.org/document/9926585",
         image: DTFramework,
         hoverImage: DTFramework,
+        video: "https://drive.google.com/file/d/1rTC0sgW_r2_yqQ7-F6LpVbpZPcr5BdOH/view"
     },
 ]
 
