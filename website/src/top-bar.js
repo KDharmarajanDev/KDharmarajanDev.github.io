@@ -96,6 +96,7 @@ export default function TopBar(props) {
           <StyledTabs
             value={activeTab}
             aria-label="basic tabs example"
+            centered
           >
             {topTabs.map((tab) => {
               return (

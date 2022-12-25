@@ -12,6 +12,7 @@ import { light, dark } from './theme';
 import { styled } from '@mui/system';
 import PublicationCard from './publication-card';
 import CssBaseline from "@mui/material/CssBaseline";
+import { Element } from 'react-scroll';
 
 const selectTheme = (state) => state.theme.theme;
 
