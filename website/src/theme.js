@@ -26,7 +26,8 @@ export const light = createTheme(baseTheme, {
         },
         text: {
             main: "#181818",
-            link: "#0077B6"
+            link: "#0077B6",
+            alt: "#F2F2F2"
         }
     }
 })
@@ -45,7 +46,8 @@ export const dark = createTheme(baseTheme, {
         },
         text: {
             main: "#F2F2F2",
-            link: "#0077B6"
+            link: "#0D9FD9",
+            alt: "#181818"
         }
     }
 })

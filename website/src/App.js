@@ -35,27 +35,27 @@ function App() {
       <StyledBackground>
         <TopBar/>
         <ContactSegment/>
-        <StyledDiv>
-          <Box id="about-me" sx={{ marginTop: 10 }}>
+        <StyledDiv id="master-container">
+          <Box name="about-me" component={Element} sx={{ marginTop: 10 }}>
             <Typography variant="h2">About Me</Typography>
             <Introduction/>
           </Box>
-          <Box id="publications" sx={{ marginTop: 5 }}>
+          <Box name="publications" component={Element} sx={{ marginTop: 5 }}>
             <Typography variant="h2">Publications</Typography>
             {publications.map(publication => (
               <PublicationCard title={publication.title} arXiv={publication.arXiv} github={publication.github}
                               tweet={publication.tweet} paper={publication.paper} authors={publication.authors}
                               description={publication.description} conference={publication.conference} image={publication.image}
-                              hoverImage={publication.hoverImage} video={publication.video}/>
+                              hoverImage={publication.hoverImage} video={publication.video} key={publication.title}/>
             ))}
           </Box>
-          <Box id="projects" sx={{ marginTop: 5 }}>
+          <Box name="projects" component={Element} sx={{ marginTop: 5 }}>
             <Typography variant="h2">Projects</Typography>
                 <Typography variant="h4">Languages and Technologies</Typography>
               <Grid container id="grid-container" align="center" justifyContent="center" spacing={1} direction="row" alignItems="center" 
                 sx={{ marginTop: 1, marginBottom: 3 }}>
                 {Object.keys(initialState).map(name => (
-                    <Grid item>
+                    <Grid key={name} item>
                       <TechnologyButton name={name}/>
                     </Grid>
                   ))
@@ -63,7 +63,7 @@ function App() {
               </Grid>
                 {projects.map(project => (
                     <ProjectCard name={project.name} image={project.image} link={project.link} description={project.description}
-                                technologies={project.technologies} website={project.website} hoverImage={project.hoverImage}/>
+                                technologies={project.technologies} website={project.website} hoverImage={project.hoverImage} key={project.name}/>
                 ))}
           </Box>
         </StyledDiv>
