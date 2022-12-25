@@ -96,7 +96,9 @@ export default function ContactSegment(props) {
             <Grid item>
                 <Typography variant="h3" sx={{ 
                     fontWeight: "bold",
-                    textAlign: "center"}}
+                    textAlign: "center",
+                    fontFamily: "'Playfair Display', serif"
+                }}
                 >
                     Karthik Dharmarajan
                 </Typography>
