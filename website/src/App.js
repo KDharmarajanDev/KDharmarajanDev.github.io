@@ -62,7 +62,7 @@ function App() {
               </Grid>
                 {projects.map(project => (
                     <ProjectCard name={project.name} image={project.image} link={project.link} description={project.description}
-                                technologies={project.technologies} website={project.website}/>
+                                technologies={project.technologies} website={project.website} hoverImage={project.hoverImage}/>
                 ))}
           </Box>
         </StyledDiv>

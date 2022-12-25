@@ -49,9 +49,14 @@ function TopBarLink(props) {
 
   const scrollToFunction = useCallback(() => {
     const element = document.getElementById(props.target);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    const offset = 0;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+    console.log(offsetPosition)
+    window.scrollTo({
+         top: offsetPosition,
+         behavior: "smooth"
+    });
   }, [props.target]);
 
   return (

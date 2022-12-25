@@ -184,12 +184,16 @@ export default function PublicationCard(props) {
                         <StyledCardTitle>
                             {props.title}
                         </StyledCardTitle>
-                        <AuthorList authors={props.authors}/>
+                        {props.authors ?
+                        <AuthorList authors={props.authors}/> :
+                        null
+                        }
                         <StyledDescription component="p" sx={{ fontStyle: 'italic' }}>
                             {props.conference}
                         </StyledDescription>
                         <InfoButtons arXiv={props.arXiv} github={props.github}
-                              tweet={props.tweet} paper={props.paper} video={props.video}/>
+                              tweet={props.tweet} paper={props.paper} video={props.video}
+                              website={props.website}/>
                         <StyledDescription component="p">
                             {props.description}
                         </StyledDescription>
