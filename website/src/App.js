@@ -54,10 +54,7 @@ function App() {
           <Box id="publications" sx={{ marginTop: 5 }} ref={publicationsRef}>
             <Typography variant="h2">Publications</Typography>
             {publications.map(publication => (
-              <PublicationCard title={publication.title} arXiv={publication.arXiv} github={publication.github}
-                              tweet={publication.tweet} paper={publication.paper} authors={publication.authors}
-                              description={publication.description} conference={publication.conference} image={publication.image}
-                              hoverImage={publication.hoverImage} video={publication.video} key={publication.title}/>
+              <PublicationCard {...publication} key={publication.title}/>
             ))}
           </Box>
           <Box id="projects" sx={{ marginTop: 5 }} ref={projectsRef}>
@@ -73,8 +70,7 @@ function App() {
                 }
               </Grid>
                 {projects.map(project => (
-                    <ProjectCard name={project.name} image={project.image} link={project.link} description={project.description}
-                                technologies={project.technologies} website={project.website} hoverImage={project.hoverImage} key={project.name}/>
+                    <ProjectCard {...project} key={project.name}/>
                 ))}
           </Box>
         </StyledDiv>

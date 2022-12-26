@@ -18,7 +18,6 @@ export default function ProjectCard(props) {
     const hasValidTechnology = containsAnyItem(props.technologies, technologies);
 
     return (<Collapse in={hasValidTechnology} timeout={"auto"} unmountOnExit>
-              <PublicationCard title={props.name} image={props.image} github={props.link} description={props.description}
-                              website={props.website} hoverImage={props.hoverImage}/>
+              <PublicationCard {...props}/>
             </Collapse>);
 }  

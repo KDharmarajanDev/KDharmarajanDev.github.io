@@ -1,10 +1,10 @@
-import { AppBar, Toolbar, Box, Grid, Tabs, Tab, IconButton, Typography } from '@mui/material';
+import { AppBar, Toolbar, Box, Tabs, Tab, IconButton, Typography } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from './theme-reducer';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import { styled } from '@mui/system';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 const themeSelector = state => state.theme;
 
@@ -132,7 +132,7 @@ export default function TopBar(props) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [props.topTabs]);
 
   return (
     <Box sx={{ flexGrow: 1 }}>

@@ -175,6 +175,20 @@ function InfoButtons(props) {
 
 export default function PublicationCard(props) {
 
+    const conferenceSplit = useMemo(() => {
+        if (!props.conference) {
+            return ["", ""];
+        }
+        const endIndex = props.conference.indexOf(".");
+        let afterPart = "";
+        let beforePart = props.conference;
+        if (endIndex !== -1) {
+            beforePart = props.conference.substr(0, endIndex+1);
+            afterPart = props.conference.substr(endIndex+1, props.conference.length)
+        }
+        return [beforePart, afterPart];
+    }, [props.conference]);
+
     return (
             <StyledCard key={props.title} elevation={0}>
                 <Grid container 
@@ -194,9 +208,14 @@ export default function PublicationCard(props) {
                         <AuthorList authors={props.authors}/> :
                         null
                         }
+                        {props.conference ? 
                         <StyledDescription component="p" sx={{ fontStyle: 'italic' }}>
-                            {props.conference}
-                        </StyledDescription>
+                            {conferenceSplit[0]}
+                            <strong>
+                                {conferenceSplit[1]}
+                            </strong>
+                        </StyledDescription> : 
+                        null}
                         <StyledDescription component="p">
                             {props.description}
                         </StyledDescription>
