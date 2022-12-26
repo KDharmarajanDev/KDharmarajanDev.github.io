@@ -116,26 +116,6 @@ const nearestIndex = (
   }
 };
 
-function LocationTab(props) {
-
-  const goToLocation = useCallback(() => {
-    const topOffset = props.target.elemRef.current.offsetTop - 60
-    window.scrollTo({
-        left: 0, 
-        top: topOffset, 
-        behavior:'smooth'
-      });
-  }, [props.target])
-
-  return (
-    <StyledTab                   
-      key={props.target.key}
-      value={props.target.key}
-      label={<Typography variant="h5">{props.target.label}</Typography>}
-      onClick={goToLocation}/>
-  )
-}
-
 export default function TopBar(props) {
   const [activeIndex, setActiveIndex] = useState(0);
   useEffect(() => {
@@ -163,14 +143,24 @@ export default function TopBar(props) {
             minHeight: 70
           }}>
           <StyledTabs
-            value={activeIndex}
+            value={props.topTabs[activeIndex].key}
             aria-label="basic tabs example"
             centered
           >
             {props.topTabs.map((tab) => {
               return (
-                <LocationTab target={tab} key={tab.key}/>
-              );
+                <StyledTab                   
+                  key={tab.key}
+                  value={tab.key}
+                  label={<Typography variant="h5">{tab.label}</Typography>}
+                  onClick={() => {
+                    const topOffset = tab.elemRef.current.offsetTop - 60
+                    window.scrollTo({
+                        left: 0, 
+                        top: topOffset, 
+                        behavior:'smooth'});                
+                  }}/>
+                        );
             })}
           </StyledTabs>
           <ThemeSwitch/>
