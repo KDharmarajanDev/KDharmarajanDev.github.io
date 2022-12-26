@@ -53,23 +53,6 @@ export const publications = [
 
 export const projects = [
     {
-        name: "LED Light Strip Scheduler",
-        image: LEDLightStripScheduler,
-        hoverImage: LEDLightStripScheduler,
-        link: "https://github.com/KDharmarajanDev/led-light-strip-android-app",
-        description: "LED Light Strip Scheduler is a simple and powerful application on the " 
-        + "Android operating system that allows users to control an Arduino operating RGB LED Strips with over one billion possible sequences.",
-        technologies: ["C++", "Java"]
-    },
-    {
-        name: "CoinConnect",
-        image: CoinConnect,
-        hoverImage: CoinConnect,
-        description: "CoinConnect is a Discord bot that is a centralized means of managing cryptocurrency portfolios across various crypto exchanges. This bot utilizes "
-                    + "The bot supports asset selling/buying, price data gathering, and showing the portfolio valuation. The GitHub code is not public.",
-        technologies: ["Python"]
-    },
-    {
         name: "Sandbox",
         image: SandboxImage,
         hoverImage: SandboxImage,
@@ -78,5 +61,14 @@ export const projects = [
         description: "The Sandbox is an intelligent kinetic sand table that is able to draw patterns on sand by moving the steel ball. Input for the design can be taken as mathematical " +
                     "functions, G-code files, or as a drawing from a user interface. The Sandbox also has an interactive mode that tracks a finger.",
         technologies: ["Python", "React"]
+    },
+    {
+        name: "LED Light Strip Scheduler",
+        image: LEDLightStripScheduler,
+        hoverImage: LEDLightStripScheduler,
+        link: "https://github.com/KDharmarajanDev/led-light-strip-android-app",
+        description: "LED Light Strip Scheduler is a simple and powerful application on the " 
+        + "Android operating system that allows users to control an Arduino operating RGB LED Strips with over one billion possible sequences.",
+        technologies: ["C++", "Java"]
     }
 ]

@@ -68,17 +68,28 @@ function ContactButtons(props) {
             </Grid>);
 }
 
+const OutsideContainer = styled(Grid, {
+    shouldForwardProp: (prop) => true
+})(({ theme }) => ({
+    position: "fixed",
+    width: "25%",
+    padding: "10px",
+    [theme.breakpoints.down('lg')]: {
+        position: "relative",
+        width: "50%",
+        marginLeft: "auto",
+        marginRight: "auto",
+        marginTop: "50px"
+      },
+}));
+
 export default function ContactSegment(props) {
     return (
-        <Grid container spacing={2} 
+        <OutsideContainer container spacing={2} 
             justifyContent="center"
             alignItems="center"
             direction="column"
-            sx={{
-                position: "fixed",
-                width: "25%",
-                padding: "10px"
-            }}>
+            >
             <Grid item>
                 <Box
                     component="img"
@@ -105,6 +116,6 @@ export default function ContactSegment(props) {
             <Grid item>
                 <ContactButtons/>
             </Grid>
-        </Grid>
+        </OutsideContainer>
     );
 }

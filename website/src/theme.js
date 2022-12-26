@@ -12,6 +12,46 @@ const baseTheme = createTheme({
     }
 })
 
+baseTheme.typography.h3 = {
+    fontSize: '1.5rem',
+    '@media (min-width:600px)': {
+      fontSize: '1.5rem',
+    },
+    [baseTheme.breakpoints.up('md')]: {
+      fontSize: '2.4rem',
+    },
+};
+
+baseTheme.typography.h4 = {
+    fontSize: '1.5rem',
+    '@media (min-width:600px)': {
+      fontSize: '1.5rem',
+    },
+    [baseTheme.breakpoints.up('md')]: {
+      fontSize: '2.125rem',
+    },
+};
+
+baseTheme.typography.h2 = {
+    fontSize: '2.5rem',
+    '@media (min-width:600px)': {
+      fontSize: '2.5rem',
+    },
+    [baseTheme.breakpoints.up('md')]: {
+      fontSize: '3.75rem',
+    },
+};
+
+baseTheme.typography.h5 = {
+    fontSize: '1rem',
+    '@media (min-width:600px)': {
+      fontSize: '1.5rem',
+    },
+    [baseTheme.breakpoints.up('md')]: {
+      fontSize: '1.5rem',
+    },
+};
+
 export const light = createTheme(baseTheme, {
     palette: {
         mode: "light",
