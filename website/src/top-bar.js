@@ -1,11 +1,10 @@
-import { AppBar, Toolbar, Box, Grid, Tabs, Tab, IconButton } from '@mui/material';
+import { AppBar, Toolbar, Box, Grid, Tabs, Tab, IconButton, Typography } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from './theme-reducer';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import { styled } from '@mui/system';
-import { useState, forwardRef } from 'react';
-import { Link } from "react-scroll";
+import { useState, useEffect } from 'react';
 
 const themeSelector = state => state.theme;
 
@@ -14,16 +13,23 @@ const StyledTabs = styled(Tabs, {
 })(({theme}) => ({
     flexGrow: 1,
     color: theme.palette.text.alt,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 'auto'
+    height: 5,
+    '& .MuiTabs-indicator': {
+      backgroundColor: theme.palette.text.alt
+    },  
 }));
 
-const StyledTab = styled(Tab, {
+const StyledTab = styled((props) => <Tab disableRipple {...props}/>, {
   shouldForwardProp: (_) => true
 })(({ theme }) => ({
   color: theme.palette.text.alt,
-  textTransform: 'none'
+  textTransform: 'none',
+  marginLeft: 10,
+  marginRight: 10,
+  '&.Mui-selected': {
+    color: theme.palette.text.alt,
+    fontWeight: theme.typography.fontWeightMedium,
+  },
 }));
 
 const StyledAppBar = styled(AppBar,{
@@ -61,29 +67,74 @@ function ThemeSwitch(props) {
     )
 }
 
-const topTabs = [
-  { label: "About Me", key: "about-me" },
-  { label: "Publications", key: "publications" },
-  { label: "Projects", key: "projects" }
-];
-
-const SLink = forwardRef((props, ref) => {
-  console.log(props)
-return (<Link {...props} innerRef={ref}/>);
-});
+const nearestIndex = (
+  currentPosition,
+  sectionPositionArray,
+  startIndex,
+  endIndex
+) => {
+  if (startIndex === endIndex) {
+    return startIndex;
+  } else if (startIndex === endIndex - 1) {
+    if (
+      Math.abs(
+        sectionPositionArray[startIndex].elemRef.current.offsetTop -
+          currentPosition
+      ) <
+      Math.abs(
+        sectionPositionArray[endIndex].elemRef.current.offsetTop -
+          currentPosition
+      )
+      ) {
+        return startIndex;
+      }
+    return endIndex;
+  } else {
+    const nextNearest = ~~((startIndex + endIndex) / 2);
+    const a = Math.abs(
+      sectionPositionArray[nextNearest].elemRef.current.offsetTop -
+        currentPosition
+    );
+    const b = Math.abs(
+      sectionPositionArray[nextNearest + 1].elemRef.current.offsetTop -
+        currentPosition
+    );
+    console.log('b ' + b)
+    if (a < b) {
+      return nearestIndex(
+        currentPosition,
+        sectionPositionArray,
+        startIndex,
+        nextNearest
+      );
+    } else {
+      return nearestIndex(
+        currentPosition,
+        sectionPositionArray,
+        nextNearest,
+        endIndex
+      );
+    }
+  }
+};
 
 export default function TopBar(props) {
-  const [activeTab, setActiveTab] = useState(false);
-
-  const handleOnSetActive = (e) => {
-    setActiveTab(e);
-  };
-
-  const handleOnSetInActive = (e) => {
-    if (e === activeTab) {
-      setActiveTab(false);
-    }
-  };
+  const [activeIndex, setActiveIndex] = useState(0);
+  useEffect(() => {
+    const handleScroll = (e) => {
+      var index = nearestIndex(
+        window.scrollY,
+        props.topTabs,
+        0,
+        props.topTabs.length - 1
+      );
+      setActiveIndex(index);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -94,27 +145,16 @@ export default function TopBar(props) {
             minHeight: 70
           }}>
           <StyledTabs
-            value={activeTab}
+            value={props.topTabs[activeIndex].key}
             aria-label="basic tabs example"
             centered
           >
-            {topTabs.map((tab) => {
+            {props.topTabs.map((tab) => {
               return (
                 <StyledTab
                   key={tab.key}
                   value={tab.key}
-                  label={tab.label}
-                  component={SLink}
-                  spy={true}
-                  isDynamic={true}
-                  smooth={true}
-                  duration={500}
-                  to={tab.key}
-                  offset={-30}
-                  activeClass="active"
-                  onSetActive={handleOnSetActive}
-                  onSetInactive={handleOnSetInActive}
-                  containerId="master-container"
+                  label={<Typography variant="h5">{tab.label}</Typography>}
                 />
               );
             })}

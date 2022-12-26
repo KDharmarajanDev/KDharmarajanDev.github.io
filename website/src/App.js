@@ -12,7 +12,7 @@ import { light, dark } from './theme';
 import { styled } from '@mui/system';
 import PublicationCard from './publication-card';
 import CssBaseline from "@mui/material/CssBaseline";
-import { Element } from 'react-scroll';
+import { useRef } from 'react';
 
 const selectTheme = (state) => state.theme.theme;
 
@@ -30,18 +30,28 @@ function App() {
 
   const theme = useSelector(selectTheme);
 
+  const aboutMeRef = useRef();
+  const publicationsRef = useRef();
+  const projectsRef = useRef();
+
+  const topTabs = [
+    { label: "About Me", key: "about-me", elemRef: aboutMeRef },
+    { label: "Publications", key: "publications", elemRef: publicationsRef },
+    { label: "Projects", key: "projects", elemRef: projectsRef }
+  ];  
+
   return (
     <ThemeProvider theme={theme === "light" ? light : dark}>
       <CssBaseline />
       <StyledBackground>
-        <TopBar/>
+        <TopBar topTabs={topTabs}/>
         <ContactSegment/>
         <StyledDiv id="master-container">
-          <Box name="about-me" component={Element} sx={{ marginTop: 10 }}>
+          <Box id="about-me" sx={{ marginTop: 10 }} ref={aboutMeRef}>
             <Typography variant="h2">About Me</Typography>
             <Introduction/>
           </Box>
-          <Box name="publications" component={Element} sx={{ marginTop: 5 }}>
+          <Box id="publications" sx={{ marginTop: 5 }} ref={publicationsRef}>
             <Typography variant="h2">Publications</Typography>
             {publications.map(publication => (
               <PublicationCard title={publication.title} arXiv={publication.arXiv} github={publication.github}
@@ -50,7 +60,7 @@ function App() {
                               hoverImage={publication.hoverImage} video={publication.video} key={publication.title}/>
             ))}
           </Box>
-          <Box name="projects" component={Element} sx={{ marginTop: 5 }}>
+          <Box id="projects" sx={{ marginTop: 5 }} ref={projectsRef}>
             <Typography variant="h2">Projects</Typography>
                 <Typography variant="h4">Languages and Technologies</Typography>
               <Grid container id="grid-container" align="center" justifyContent="center" spacing={1} direction="row" alignItems="center" 

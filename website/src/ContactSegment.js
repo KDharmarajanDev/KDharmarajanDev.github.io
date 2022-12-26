@@ -86,8 +86,8 @@ export default function ContactSegment(props) {
                         borderRadius: 5,
                         height: 150,
                         width: 150,
-                        maxHeight: { xs: 130, md: 150 },
-                        maxWidth: { xs: 130, md: 150 },
+                        maxHeight: { xs: 100, md: 150 },
+                        maxWidth: { xs: 100, md: 150 },
                         }}
                     alt="Close up photo of Karthik."
                     src={CloseImage}
@@ -95,7 +95,6 @@ export default function ContactSegment(props) {
             </Grid>
             <Grid item>
                 <Typography variant="h3" sx={{ 
-                    fontWeight: "bold",
                     textAlign: "center",
                     fontFamily: "'Playfair Display', serif"
                 }}
