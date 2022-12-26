@@ -4,7 +4,7 @@ import { toggle } from './theme-reducer';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import { styled } from '@mui/system';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const themeSelector = state => state.theme;
 
@@ -28,7 +28,6 @@ const StyledTab = styled((props) => <Tab disableRipple {...props}/>, {
   marginRight: 10,
   '&.Mui-selected': {
     color: theme.palette.text.alt,
-    fontWeight: theme.typography.fontWeightMedium,
   },
 }));
 
@@ -99,7 +98,6 @@ const nearestIndex = (
       sectionPositionArray[nextNearest + 1].elemRef.current.offsetTop -
         currentPosition
     );
-    console.log('b ' + b)
     if (a < b) {
       return nearestIndex(
         currentPosition,
@@ -117,6 +115,26 @@ const nearestIndex = (
     }
   }
 };
+
+function LocationTab(props) {
+
+  const goToLocation = useCallback(() => {
+    const topOffset = props.target.elemRef.current.offsetTop - 60
+    window.scrollTo({
+        left: 0, 
+        top: topOffset, 
+        behavior:'smooth'
+      });
+  }, [props.target])
+
+  return (
+    <StyledTab                   
+      key={props.target.key}
+      value={props.target.key}
+      label={<Typography variant="h5">{props.target.label}</Typography>}
+      onClick={goToLocation}/>
+  )
+}
 
 export default function TopBar(props) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -145,17 +163,13 @@ export default function TopBar(props) {
             minHeight: 70
           }}>
           <StyledTabs
-            value={props.topTabs[activeIndex].key}
+            value={activeIndex}
             aria-label="basic tabs example"
             centered
           >
             {props.topTabs.map((tab) => {
               return (
-                <StyledTab
-                  key={tab.key}
-                  value={tab.key}
-                  label={<Typography variant="h5">{tab.label}</Typography>}
-                />
+                <LocationTab target={tab} key={tab.key}/>
               );
             })}
           </StyledTabs>
