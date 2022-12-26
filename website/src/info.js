@@ -52,13 +52,15 @@ export const publications = [
 
 export const projects = [
     {
-        title: "Sandbox (EECS106A Final Project)",
+        title: "Sandbox",
         image: SandboxImage,
         hoverImage: SandboxImage,
         github: "https://github.com/shreystechtips/106a-final-project",
         website: "https://sandbox-106a.weebly.com/",
         description: "The Sandbox is an intelligent kinetic sand table that is able to draw patterns on sand by moving the steel ball. Input for the design can be taken as mathematical " +
                     "functions, G-code files, or as a drawing from a user interface. The Sandbox also has an interactive mode that tracks a finger.",
+        authors: ["Shrey Aeron*", "Sravya Basvapatri*", "Karthik Dharmarajan*", "Ryan Koh*"],
+        conference: "EECS 106A Final Project",
         technologies: ["Python", "React"]
     },
     {
