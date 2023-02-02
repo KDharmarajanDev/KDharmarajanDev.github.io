@@ -5,6 +5,9 @@ import { styled } from '@mui/system';
 import FleetDAgger from './assets/FleetDAgger.gif';
 import FleetDAggerFirst from './assets/FleetDAggerFirst.png';
 import DTFramework from './assets/DTFramework.png';
+import TrimodalFramework from './assets/TrimodalFramework.png';
+import AutomatedShunt from './assets/AutomatedShunt.png';
+import FogROS2 from './assets/FogROS2.png';
 
 export const StyledLink = styled(Link, {
         shouldForwardProp: (prop) => true
@@ -24,6 +27,37 @@ export function Introduction (props) {
 }
 
 export const publications = [
+    {
+        title: "FogROS2: An Adaptive Platform for Cloud and Fog Robotics Using ROS 2",
+        authors: ["Jeffrey Ichnowski*", "Kaiyuan Chen*", "Karthik Dharmarajan", "Simeon Adebola", 
+                    "Michael Danielczuk", "Víctor Mayoral-Vilches", "Nikhil Jha",
+                    "Hugo Zhan", "Edith LLontop", "Derek Xu", "John Kubiatowicz", 
+                    "Ion Stoica", "Joseph Gonzalez", "Ken Goldberg"],
+        conference: "International Conference on Robotics and Automation (ICRA) 2023 (To Appear)",
+        description: "",
+        arXiv: "https://arxiv.org/abs/2205.09778",
+        image: FogROS2,
+        hoverImage: FogROS2
+    },
+    {
+        title: "Automating Vascular Shunt Insertion with the dVRK Surgical Robot",
+        authors: ["Karthik Dharmarajan*", "Will Panitch*", "Muyan Jiang", "Kishore Srinivas", 
+                    "Baiyu Shi", "Yahav Avigal", "Huang Huang",
+                    "Thomas Low", "Danyal Fer", "Ken Goldberg" ],
+        conference: "International Conference on Robotics and Automation (ICRA) 2023 (To Appear)",
+        description: "",
+        arXiv: "https://arxiv.org/abs/2211.02293",
+        image: AutomatedShunt,
+        hoverImage: AutomatedShunt
+    },
+    {
+        title: "A Trimodal Framework for Robot-Assisted Vascular Shunt Insertion When a Supervising Surgeon is Local, Remote, or Unavailable",
+        authors: ["Karthik Dharmarajan*", "Will Panitch*", "Baiyu Shi", "Huang Huang", "Lawrence Yunliang Chen", "Thomas Low", "Danyal Fer", "Ken Goldberg"],
+        conference: "International Symposium on Medical Robotics (ISMR) 2023 (To Appear)",
+        description: "",
+        image: TrimodalFramework,
+        hoverImage: TrimodalFramework
+    },
     {
         title: "Fleet-DAgger: Interactive Robot Fleet Learning with Scalable Human Supervision",
         authors: ["Ryan Hoque", "Lawrence Yunliang Chen", "Satvik Sharma", "Karthik Dharmarajan", 
