@@ -60,6 +60,7 @@ export const publications = [
         conference: "International Conference on Robotics and Automation (ICRA) 2023",
         description: "",
         arXiv: "https://arxiv.org/abs/2205.09778",
+        paper: "https://ieeexplore.ieee.org/document/10161307",
         image: FogROS2,
         hoverImage: FogROS2
     },
@@ -71,6 +72,7 @@ export const publications = [
         conference: "International Conference on Robotics and Automation (ICRA) 2023",
         description: "",
         arXiv: "https://arxiv.org/abs/2211.02293",
+        paper: "https://ieeexplore.ieee.org/document/10160966",
         image: AutomatedShunt,
         hoverImage: AutomatedShunt
     },
@@ -79,6 +81,7 @@ export const publications = [
         authors: ["Karthik Dharmarajan*", "Will Panitch*", "Baiyu Shi", "Huang Huang", "Lawrence Yunliang Chen", "Thomas Low", "Danyal Fer", "Ken Goldberg"],
         conference: "International Symposium on Medical Robotics (ISMR) 2023",
         description: "",
+        paper: "https://ieeexplore.ieee.org/document/10130195",
         image: TrimodalFramework,
         hoverImage: TrimodalFramework
     },
