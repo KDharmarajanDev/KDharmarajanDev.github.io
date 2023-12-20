@@ -8,6 +8,8 @@ import DTFramework from './assets/DTFramework.png';
 import TrimodalFramework from './assets/TrimodalFramework.png';
 import AutomatedShunt from './assets/AutomatedShunt.png';
 import FogROS2 from './assets/FogROS2.png';
+import FogROS2SGC from './assets/FogROS2SGC.png';
+import RAVSI from './assets/RAVSI.png';
 
 export const StyledLink = styled(Link, {
         shouldForwardProp: (prop) => true
@@ -28,12 +30,34 @@ export function Introduction (props) {
 
 export const publications = [
     {
+        title: "Robot-Assisted Vascular Shunt Insertion with the dVRK Surgical Robot",
+        authors: ["Karthik Dharmarajan", "Will Panitch", "Baiyu Shi", "Huang Huang", 
+        "Lawrence Yunliang Chen", "Masoud Moghani", "Qinxi Yu", 
+        "Kush Hari", "Thomas Low", "Danyal Fer",  "Animesh Garg", "Ken Goldberg"],
+        conference: "Journal of Medical Robotics Research (JMRR)",
+        description: "",
+        website: "https://sites.google.com/berkeley.edu/ravsi",
+        image: RAVSI,
+        hoverImage: RAVSI
+    },
+    {
+        title: "FogROS2-SGC: A ROS2 Cloud Robotics Platform for Secure Global Connectivity",
+        authors: ["Kaiyuan Chen", "Ryan Hoque", "Karthik Dharmarajan", "Edith LLontop", 
+                "Simeon Adebola", "Jeffrey Ichnowski", "John Kubiatowicz"," Ken Goldberg"],
+        conference: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) 2023",
+        description: "",
+        arXiv: "https://arxiv.org/abs/2306.17157",
+        website: "https://sites.google.com/view/fogros2-sgc",
+        image: FogROS2SGC,
+        hoverImage: FogROS2SGC
+    },
+    {
         title: "FogROS2: An Adaptive Platform for Cloud and Fog Robotics Using ROS 2",
         authors: ["Jeffrey Ichnowski*", "Kaiyuan Chen*", "Karthik Dharmarajan", "Simeon Adebola", 
                     "Michael Danielczuk", "Víctor Mayoral-Vilches", "Nikhil Jha",
                     "Hugo Zhan", "Edith LLontop", "Derek Xu", "John Kubiatowicz", 
                     "Ion Stoica", "Joseph Gonzalez", "Ken Goldberg"],
-        conference: "International Conference on Robotics and Automation (ICRA) 2023 (To Appear)",
+        conference: "International Conference on Robotics and Automation (ICRA) 2023",
         description: "",
         arXiv: "https://arxiv.org/abs/2205.09778",
         image: FogROS2,
@@ -44,7 +68,7 @@ export const publications = [
         authors: ["Karthik Dharmarajan*", "Will Panitch*", "Muyan Jiang", "Kishore Srinivas", 
                     "Baiyu Shi", "Yahav Avigal", "Huang Huang",
                     "Thomas Low", "Danyal Fer", "Ken Goldberg" ],
-        conference: "International Conference on Robotics and Automation (ICRA) 2023 (To Appear)",
+        conference: "International Conference on Robotics and Automation (ICRA) 2023",
         description: "",
         arXiv: "https://arxiv.org/abs/2211.02293",
         image: AutomatedShunt,
@@ -53,7 +77,7 @@ export const publications = [
     {
         title: "A Trimodal Framework for Robot-Assisted Vascular Shunt Insertion When a Supervising Surgeon is Local, Remote, or Unavailable",
         authors: ["Karthik Dharmarajan*", "Will Panitch*", "Baiyu Shi", "Huang Huang", "Lawrence Yunliang Chen", "Thomas Low", "Danyal Fer", "Ken Goldberg"],
-        conference: "International Symposium on Medical Robotics (ISMR) 2023 (To Appear)",
+        conference: "International Symposium on Medical Robotics (ISMR) 2023",
         description: "",
         image: TrimodalFramework,
         hoverImage: TrimodalFramework
