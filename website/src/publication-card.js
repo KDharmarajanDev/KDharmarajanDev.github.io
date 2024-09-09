@@ -7,9 +7,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import Typography from '@mui/material/Typography';
 import WebAssetIcon from '@mui/icons-material/WebAsset'; 
 import ArticleIcon from '@mui/icons-material/Article';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
 import { useCallback, useMemo, useState } from 'react';
 import { styled } from '@mui/system';
 import { Grid } from '@mui/material';
+
+import arxiv_logo from './assets/arxiv_logo.png';
 
 const StyledCard = styled(Card, {
   shouldForwardProp: (_) => true
@@ -112,7 +115,7 @@ function InfoButtons(props) {
 
     const videoCallback = useCallback(() => {
         window.open(props.video)
-    }, [props.video]);  
+    }, [props.video]);
 
     return (
         <Grid container 
@@ -132,6 +135,7 @@ function InfoButtons(props) {
             {props.arXiv &&
             <Grid item>
                 <StyledButton variant="outlined"
+                startIcon={<img src={arxiv_logo} alt="arXiv" style={{height: 20}}/>}
                     onClick={arxivCallback}>
                     arXiv
                 </StyledButton>
@@ -169,25 +173,21 @@ function InfoButtons(props) {
                 </StyledButton>
             </Grid>
             }
+            {props.news &&
+                props.news.map(news => (
+                    <Grid item>
+                        <StyledButton variant="outlined"
+                        startIcon={<NewspaperIcon/>} onClick={() => window.open(news.link)}>
+                        {news.publisher}
+                        </StyledButton>
+                    </Grid>
+                ))
+            }
         </Grid>
     )
 }
 
 export default function PublicationCard(props) {
-
-    const conferenceSplit = useMemo(() => {
-        if (!props.conference) {
-            return ["", ""];
-        }
-        const endIndex = props.conference.indexOf(".");
-        let afterPart = "";
-        let beforePart = props.conference;
-        if (endIndex !== -1) {
-            beforePart = props.conference.substr(0, endIndex+1);
-            afterPart = props.conference.substr(endIndex+1, props.conference.length)
-        }
-        return [beforePart, afterPart];
-    }, [props.conference]);
 
     return (
             <StyledCard key={props.title} elevation={0}>
@@ -210,9 +210,13 @@ export default function PublicationCard(props) {
                         }
                         {props.conference ? 
                         <StyledDescription component="p" sx={{ fontStyle: 'italic' }}>
-                            {conferenceSplit[0]}
+                            {props.conference}
+                        </StyledDescription> : 
+                        null}
+                        {props.special ? 
+                        <StyledDescription component="p">
                             <strong>
-                                {conferenceSplit[1]}
+                                {props.special}
                             </strong>
                         </StyledDescription> : 
                         null}
@@ -221,7 +225,7 @@ export default function PublicationCard(props) {
                         </StyledDescription>
                         <InfoButtons arXiv={props.arXiv} github={props.github}
                               tweet={props.tweet} paper={props.paper} video={props.video}
-                              website={props.website}/>
+                              website={props.website} news={props.news}/>
                     </Grid>
                 </Grid>
             </StyledCard>

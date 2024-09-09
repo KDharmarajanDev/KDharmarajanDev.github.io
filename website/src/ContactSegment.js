@@ -4,7 +4,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/system';
 import ReceiptIcon from '@mui/icons-material/Receipt';
-import resume from './assets/Dharmarajan_Karthik_Resume.pdf'
+import resume from './assets/Dharmarajan_Karthik_Resume.pdf';
+import cv from './assets/Dharmarajan_Karthik_CV.pdf';
 import { Box } from '@mui/material';
 import CloseImage from './assets/CloseImage.jpg';
 import GoogleIcon from '@mui/icons-material/Google';
@@ -38,6 +39,10 @@ function ContactButtons(props) {
         window.open(resume);
     }, []);
 
+    const showCV = useCallback(() => {
+        window.open(cv);
+    }, []);
+
     const clickCallbackGoogleScholar = useCallback(() => {
         window.open("https://scholar.google.com/citations?user=V6e6hncAAAAJ");
     }, []);
@@ -63,6 +68,12 @@ function ContactButtons(props) {
                     <ContactSegmentButton variant="outlined"
                         onClick={showResume} startIcon={<ReceiptIcon/>}>
                         Resume
+                    </ContactSegmentButton>
+                </Grid>
+                <Grid item>
+                    <ContactSegmentButton variant="outlined"
+                        onClick={showCV} startIcon={<ReceiptIcon/>}>
+                        CV
                     </ContactSegmentButton>
                 </Grid>
             </Grid>);
