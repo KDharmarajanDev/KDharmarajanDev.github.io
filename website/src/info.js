@@ -58,7 +58,13 @@ export const publications = [
         tweet: "https://twitter.com/Chenfeng_X/status/1831731664810340419",
         special: "Oral Presentation",
         image: ROVI,
-        hoverImage: ROVI
+        hoverImage: ROVI,
+        news: [
+            {
+                "publisher": "Tech Xplore",
+                "link": "https://techxplore.com/news/2024-10-augmentation-algorithm-skills-robots.html"
+            }
+        ]
     },
     {
         title: "BOMP: Bin-Optimized Motion Planning",
@@ -67,7 +73,8 @@ export const publications = [
         conference: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) 2024",
         description: "",
         image: BOMPFirst,
-        hoverImage: BOMP
+        hoverImage: BOMP,
+        arXiv: "https://arxiv.org/abs/2411.00221",
     },
     {
         title: "Mirage: Cross-Embodiment Zero-Shot Policy Transfer with Cross-Painting",
