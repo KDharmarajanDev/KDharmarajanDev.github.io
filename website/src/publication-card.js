@@ -52,33 +52,53 @@ const StyledCardTitle = styled(Typography)(({ theme }) => ({
     fontWeight: "bold"
 }));
 
+const formatSuperscript = (text) => {
+    if (typeof text !== 'string') return text;
+    const parts = text.split(/(†)/);
+    return parts.map((part, index) => {
+        if (part === '†') {
+            return <sup key={index}>{part}</sup>;
+        }
+        return part;
+    });
+};
+
 function AuthorList(props) {
-    const authorStringComponents = useMemo(() => {
+    const authorComponents = useMemo(() => {
         const endIndex = props.authors.findIndex((element) => element.substr(0, 19) === "Karthik Dharmarajan");
-        const prevSlice = props.authors.slice(0, endIndex);
-        const prevString = prevSlice.join(', ');
-        const endSlice = props.authors.slice(endIndex + 1, props.authors.length);
-        const endString = endSlice.join(', ');
-        return [prevString, props.authors[endIndex], endString];
+        
+        return props.authors.map((author, index) => {
+            const isKarthik = index === endIndex;
+            const content = formatSuperscript(author);
+            return (
+                <span key={index}>
+                    {isKarthik ? <strong>{content}</strong> : content}
+                    {index < props.authors.length - 1 ? ", " : ""}
+                </span>
+            );
+        });
     }, [props.authors]);
 
     return (
         <StyledDescription>
-            { authorStringComponents[0] ? authorStringComponents[0] + ", " : "" }
-            <strong>
-                { authorStringComponents[1] }
-            </strong>
-            { authorStringComponents[2] ? ", " + authorStringComponents[2] : "" }
+            {authorComponents}
         </StyledDescription>
     )
 }
 
 function ChangingCardMedia(props) {
     const [isOver, setIsOver] = useState(false);
+    const src = isOver ? props.hoverImage: props.image;
+    const isVideo = src && (typeof src === 'string' && src.endsWith('.mp4'));
 
     return (
         <StyledCardMedia
-            component="img" src={isOver ? props.hoverImage: props.image}
+            component={isVideo ? "video" : "img"}
+            src={src}
+            autoPlay={isVideo}
+            loop={isVideo}
+            muted={isVideo}
+            playsInline={isVideo}
             onMouseEnter={() => setIsOver(true)}
             onMouseLeave={() => setIsOver(false)}
          />
@@ -202,7 +222,7 @@ export default function PublicationCard(props) {
                     </Grid>
                     <Grid item sm={9}>
                         <StyledCardTitle>
-                            {props.title}
+                            {formatSuperscript(props.title)}
                         </StyledCardTitle>
                         {props.authors ?
                         <AuthorList authors={props.authors}/> :
@@ -210,18 +230,18 @@ export default function PublicationCard(props) {
                         }
                         {props.conference ? 
                         <StyledDescription component="p" sx={{ fontStyle: 'italic' }}>
-                            {props.conference}
+                            {formatSuperscript(props.conference)}
                         </StyledDescription> : 
                         null}
                         {props.special ? 
                         <StyledDescription component="p">
                             <strong>
-                                {props.special}
+                                {formatSuperscript(props.special)}
                             </strong>
                         </StyledDescription> : 
                         null}
                         <StyledDescription component="p">
-                            {props.description}
+                            {formatSuperscript(props.description)}
                         </StyledDescription>
                         <InfoButtons arXiv={props.arXiv} github={props.github}
                               tweet={props.tweet} paper={props.paper} video={props.video}

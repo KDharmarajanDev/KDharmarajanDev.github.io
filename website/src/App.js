@@ -1,10 +1,6 @@
 import './App.css';
-import Grid from '@mui/material/Grid';
-import ProjectCard from './ProjectCard';
 import ContactSegment from './ContactSegment';
-import { initialState } from './project-filter-reducer';
-import TechnologyButton from './technology-button';
-import { Introduction, projects, publications } from './info';
+import { Introduction, publications } from './info';
 import TopBar from './top-bar';
 import { Box, ThemeProvider, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
@@ -32,12 +28,10 @@ function App() {
 
   const aboutMeRef = useRef();
   const publicationsRef = useRef();
-  const projectsRef = useRef();
 
   const topTabs = [
     { label: "About Me", key: "about-me", elemRef: aboutMeRef },
-    { label: "Publications", key: "publications", elemRef: publicationsRef },
-    { label: "Projects", key: "projects", elemRef: projectsRef }
+    { label: "Publications", key: "publications", elemRef: publicationsRef }
   ];  
 
   return (
@@ -56,22 +50,6 @@ function App() {
             {publications.map(publication => (
               <PublicationCard {...publication} key={publication.title}/>
             ))}
-          </Box>
-          <Box id="projects" sx={{ marginTop: 5 }} ref={projectsRef}>
-            <Typography variant="h2">Projects</Typography>
-                <Typography variant="h4">Languages and Technologies</Typography>
-              <Grid container id="grid-container" align="center" justifyContent="center" spacing={1} direction="row" alignItems="center" 
-                sx={{ marginTop: 1, marginBottom: 3 }}>
-                {Object.keys(initialState).map(name => (
-                    <Grid key={name} item>
-                      <TechnologyButton name={name}/>
-                    </Grid>
-                  ))
-                }
-              </Grid>
-                {projects.map(project => (
-                    <ProjectCard {...project} key={project.name}/>
-                ))}
           </Box>
         </StyledDiv>
       </StyledBackground>

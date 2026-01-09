@@ -1,24 +1,19 @@
-import SandboxImage from './assets/Sandbox.jpeg';
-import LEDLightStripScheduler from './assets/LEDLightStripScheduler.png';
 import { Link, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import FleetDAgger from './assets/FleetDAgger.gif';
-import FleetDAggerFirst from './assets/FleetDAggerFirst.png';
 import DTFramework from './assets/DTFramework.png';
 import TrimodalFramework from './assets/TrimodalFramework.png';
 import AutomatedShunt from './assets/AutomatedShunt.png';
 import FogROS2 from './assets/FogROS2.png';
 import FogROS2SGC from './assets/FogROS2SGC.png';
 import RAVSI from './assets/RAVSI.png';
-import ORBITFirst from './assets/ORBITFirst.png';
 import ORBIT from './assets/ORBIT.gif';
-import STITCHFirst from './assets/STITCHFirst.png';
 import STITCH from './assets/STITCH.gif';
-import MirageFirst from './assets/MirageFirst.png';
 import Mirage from './assets/Mirage.gif';
-import BOMPFirst from './assets/BOMPFirst.png';
 import BOMP from './assets/BOMP.gif';
-import ROVI from './assets/ROVI.png';
+import ROVI_VIDEO from './assets/rovi.mp4';
+import Dream2Flow from './assets/Dream2Flow.png';
+import Chord from './assets/chord.mp4';
 
 export const StyledLink = styled(Link, {
         shouldForwardProp: (prop) => true
@@ -30,7 +25,7 @@ export function Introduction (props) {
     return (
         <>
             <Typography variant="p" color={"theme.palette.text.main"}>
-                I'm a Stanford Master's student studying computer science with a passion for autonomous systems and intelligent robotics.
+                I'm a Stanford Master's student studying computer science with a passion for developing general purpose robotics for open-world manipulation. I am fortunate to be advised by <StyledLink href="https://ruohanzhang.com/" underline="hover">Dr. Ruohan Zhang</StyledLink>, <StyledLink href="https://jiajunwu.com/" underline="hover">Prof. Jiajun Wu</StyledLink>, and <StyledLink href="https://profiles.stanford.edu/fei-fei-li" underline="hover">Prof. Fei-Fei Li</StyledLink> in the <StyledLink href="https://svl.stanford.edu/" underline="hover">Stanford Vision and Learning Lab (SVL)</StyledLink>.
             </Typography>
 
             <br />
@@ -47,18 +42,40 @@ export function Introduction (props) {
 
 export const publications = [
     {
+        title: "Choreographing a World of Dynamic Objects",
+        authors: ["Yanzhe Lyu*", "Chen Geng*", "Karthik Dharmarajan", "Yunzhi Zhang", "Hadi Alzayer", "Shangzhe Wu", "Jiajun Wu"],
+        conference: "arXiv 2026",
+        paper: "https://arxiv.org/pdf/2601.04194",
+        arXiv: "https://arxiv.org/abs/2601.04194",
+        website: "https://yanzhelyu.github.io/chord/",
+        image: Chord,
+        hoverImage: Chord
+    },
+    {
+        title: "Dream2Flow: Bridging Video Generation and Open-World Manipulation with 3D Object Flow",
+        authors: ["Karthik Dharmarajan", "Wenlong Huang", "Jiajun Wu", "Li Fei-Fei†", "Ruohan Zhang†"],
+        conference: "arXiv 2025",
+        paper: "https://dream2flow.github.io/paper.pdf",
+        arXiv: "https://arxiv.org/abs/2512.24766",
+        website: "https://dream2flow.github.io/",
+        image: Dream2Flow,
+        hoverImage: Dream2Flow
+    },
+    {
         title: "RoVi-Aug: Robot and Viewpoint Augmentation for Cross-Embodiment Robot Learning",
         authors: ["Lawrence Yunliang Chen*", "Chenfeng Xu*", "Karthik Dharmarajan", "Zubair Irshad", 
             "Richard Cheng", "Kurt Keutzer", "Masayoshi Tomizuka", "Quan Vuong", "Ken Goldberg"
         ],
         conference: "Conference on Robot Learning (CoRL) 2024",
         description: "",
+        paper: "https://arxiv.org/pdf/2409.03403",
         website: "https://rovi-aug.github.io/",
+        github: "https://github.com/BerkeleyAutomation/rovi-aug",
         arXiv: "https://arxiv.org/abs/2409.03403",
         tweet: "https://twitter.com/Chenfeng_X/status/1831731664810340419",
-        special: "Oral Presentation",
-        image: ROVI,
-        hoverImage: ROVI,
+        special: "Oral Presentation, Top 4.3%",
+        image: ROVI_VIDEO,
+        hoverImage: ROVI_VIDEO,
         news: [
             {
                 "publisher": "Tech Xplore",
@@ -72,7 +89,8 @@ export const publications = [
             "Ken Goldberg"],
         conference: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) 2024",
         description: "",
-        image: BOMPFirst,
+        paper: "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10801312",
+        image: BOMP,
         hoverImage: BOMP,
         arXiv: "https://arxiv.org/abs/2411.00221",
     },
@@ -82,10 +100,11 @@ export const publications = [
             "Ken Goldberg"],
         conference: "Robotics: Science and Systems (RSS) 2024",
         description: "",
+        paper: "https://www.roboticsproceedings.org/rss20/p069.pdf",
         github: "https://github.com/BerkeleyAutomation/mirage",
         arXiv: "https://arxiv.org/abs/2402.19249",
         tweet: "https://twitter.com/Lawrence_Y_Chen/status/1763237997284405620",
-        image: MirageFirst,
+        image: Mirage,
         hoverImage: Mirage
     },
     {
@@ -95,6 +114,7 @@ export const publications = [
         conference: "International Symposium on Medical Robotics (ISMR) 2024",
         description: "",
         special: "Best Paper Finalist",
+        paper: "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10585751",
         website: "https://sites.google.com/berkeley.edu/stitch",
         arXiv: "https://arxiv.org/abs/2404.05151",
         news: [
@@ -103,7 +123,7 @@ export const publications = [
                 link: "https://www.technologyreview.com/2024/02/22/1088780/watch-this-robot-as-it-learns-to-stitch-up-wounds/"
             }
         ],
-        image: STITCHFirst,
+        image: STITCH,
         hoverImage: STITCH
     },
     {
@@ -112,6 +132,7 @@ export const publications = [
             "Jingzhou Liu", "Kush Hari", "Huang Huang", "Mayank Mittal", "Ken Goldberg", "Animesh Garg"],
         conference: "IEEE International Conference on Intelligent Robots and Systems (ICRA) 2024",
         description: "",
+        paper: "https://ieeexplore.ieee.org/document/10611637",
         website: "https://orbit-surgical.github.io/",
         github: "https://github.com/orbit-surgical/orbit-surgical",
         tweet: "https://x.com/MasoudMoghani/status/1790939952278323434",
@@ -134,7 +155,7 @@ export const publications = [
                 link: "https://the-decoder.com/orbit-surgical-uses-nvidias-physics-simulation-and-ray-tracing-to-train-surgical-robots/"
             }
         ],
-        image: ORBITFirst,
+        image: ORBIT,
         hoverImage: ORBIT
     },
     {
@@ -210,11 +231,12 @@ export const publications = [
                     "Brijen Thananjeyan", "Pieter Abbeel", "Ken Goldberg"],
         conference: "Conference on Robot Learning (CoRL) 2022",
         description: "",
-        special: "Oral Presentation (6.5% of papers)",
+        special: "Oral Presentation, Top 6.5%",
+        paper: "https://proceedings.mlr.press/v205/hoque23a/hoque23a.pdf",
         arXiv: "https://arxiv.org/abs/2206.14349",
         github: "https://github.com/BerkeleyAutomation/ifl_benchmark",
         tweet: "https://twitter.com/ryan_hoque/status/1542932195949432832?ref_src=twsrc%5Etfw",
-        image: FleetDAggerFirst,
+        image: FleetDAgger,
         hoverImage: FleetDAgger
     },
     {
@@ -229,28 +251,4 @@ export const publications = [
         hoverImage: DTFramework,
         video: "https://drive.google.com/file/d/1rTC0sgW_r2_yqQ7-F6LpVbpZPcr5BdOH/view"
     },
-]
-
-export const projects = [
-    {
-        title: "Sandbox",
-        image: SandboxImage,
-        hoverImage: SandboxImage,
-        github: "https://github.com/shreystechtips/106a-final-project",
-        website: "https://sandbox-106a.weebly.com/",
-        description: "The Sandbox is an intelligent kinetic sand table that is able to draw patterns on sand by moving the steel ball. Input for the design can be taken as mathematical " +
-                    "functions, G-code files, or as a drawing from a user interface. The Sandbox also has an interactive mode that tracks a finger.",
-        authors: ["Shrey Aeron*", "Sravya Basvapatri*", "Karthik Dharmarajan*", "Ryan Koh*"],
-        conference: "EECS 106A Final Project",
-        technologies: ["Python", "React"]
-    },
-    {
-        title: "LED Light Strip Scheduler",
-        image: LEDLightStripScheduler,
-        hoverImage: LEDLightStripScheduler,
-        github: "https://github.com/KDharmarajanDev/led-light-strip-android-app",
-        description: "LED Light Strip Scheduler is a simple and powerful application on the " 
-        + "Android operating system that allows users to control an Arduino operating RGB LED Strips with over one billion possible sequences.",
-        technologies: ["C++", "Java"]
-    }
 ]
