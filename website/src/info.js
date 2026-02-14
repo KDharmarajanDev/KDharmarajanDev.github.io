@@ -25,7 +25,7 @@ export function Introduction (props) {
     return (
         <>
             <Typography variant="p" color={"theme.palette.text.main"}>
-                I'm a Stanford Master's student studying computer science with a passion for developing general purpose robotics for open-world manipulation. I am fortunate to be advised by <StyledLink href="https://ruohanzhang.com/" underline="hover">Dr. Ruohan Zhang</StyledLink>, <StyledLink href="https://jiajunwu.com/" underline="hover">Prof. Jiajun Wu</StyledLink>, and <StyledLink href="https://profiles.stanford.edu/fei-fei-li" underline="hover">Prof. Fei-Fei Li</StyledLink> in the <StyledLink href="https://svl.stanford.edu/" underline="hover">Stanford Vision and Learning Lab (SVL)</StyledLink>.
+                I'm a Stanford Master's student studying computer science with a passion for developing general purpose robotics for open-world manipulation. I am fortunate to be advised by <StyledLink href="https://ruohanzhang.com/" underline="hover">Dr. Ruohan Zhang</StyledLink>, <StyledLink href="https://jiajunwu.com/" underline="hover">Prof. Jiajun Wu</StyledLink>, and <StyledLink href="https://profiles.stanford.edu/fei-fei-li" underline="hover">Prof. Fei-Fei Li</StyledLink> in the <StyledLink href="https://svl.stanford.edu/" underline="hover">Stanford Vision and Learning Lab (SVL)</StyledLink>. I will be returning to UC Berkeley as a CS PhD student in Fall 2026.
             </Typography>
 
             <br />
@@ -39,6 +39,25 @@ export function Introduction (props) {
         </>
     );
 }
+
+export const news = [
+    {
+        date: "Feb 2026",
+        content: (
+            <>
+                I have decided to return to UC Berkeley as a CS PhD student. Go Bears 🐻!
+            </>
+        )
+    },
+    {
+        date: "Jan 2026",
+        content: (
+            <>
+                <StyledLink href="https://dream2flow.github.io/" underline="hover">Dream2Flow</StyledLink> has been accepted to ICRA 2026, see you in Vienna!
+            </>
+        )
+    }
+];
 
 export const publications = [
     {
@@ -54,7 +73,7 @@ export const publications = [
     {
         title: "Dream2Flow: Bridging Video Generation and Open-World Manipulation with 3D Object Flow",
         authors: ["Karthik Dharmarajan", "Wenlong Huang", "Jiajun Wu", "Li Fei-Fei†", "Ruohan Zhang†"],
-        conference: "arXiv 2025",
+        conference: "IEEE International Conference on Robotics and Automation (ICRA) 2026",
         paper: "https://dream2flow.github.io/paper.pdf",
         arXiv: "https://arxiv.org/abs/2512.24766",
         website: "https://dream2flow.github.io/",
@@ -111,7 +130,7 @@ export const publications = [
         title: "STITCH: Augmented Dexterity for Suture Throws Including Thread Coordination and Handoffs",
         authors: ["Kush Hari*", "Hansoul Kim*", "Will Panitch", "Kishore Srinivas", "Vincent Schorp", "Karthik Dharmarajan",
             "Shreya Ganti", "Tara Sadjadpour", "Ken Goldberg"],
-        conference: "International Symposium on Medical Robotics (ISMR) 2024",
+        conference: "IEEEInternational Symposium on Medical Robotics (ISMR) 2024",
         description: "",
         special: "Best Paper Finalist",
         paper: "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10585751",
@@ -130,7 +149,7 @@ export const publications = [
         title: "ORBIT-Surgical: An Open-Simulation Framework for Learning Surgical Augmented Dexterity",
         authors: ["Qinxi Yu*", "Masoud Moghani*", "Karthik Dharmarajan", "Vincent Schorp", "Will Panitch",
             "Jingzhou Liu", "Kush Hari", "Huang Huang", "Mayank Mittal", "Ken Goldberg", "Animesh Garg"],
-        conference: "IEEE International Conference on Intelligent Robots and Systems (ICRA) 2024",
+        conference: "IEEE International Conference on Robotics and Automation (ICRA) 2024",
         description: "",
         paper: "https://ieeexplore.ieee.org/document/10611637",
         website: "https://orbit-surgical.github.io/",
@@ -189,7 +208,7 @@ export const publications = [
                     "Michael Danielczuk", "Víctor Mayoral-Vilches", "Nikhil Jha",
                     "Hugo Zhan", "Edith LLontop", "Derek Xu", "John Kubiatowicz", 
                     "Ion Stoica", "Joseph Gonzalez", "Ken Goldberg"],
-        conference: "International Conference on Robotics and Automation (ICRA) 2023",
+        conference: "IEEE International Conference on Robotics and Automation (ICRA) 2023",
         description: "",
         arXiv: "https://arxiv.org/abs/2205.09778",
         paper: "https://ieeexplore.ieee.org/document/10161307",
@@ -208,7 +227,7 @@ export const publications = [
         authors: ["Karthik Dharmarajan*", "Will Panitch*", "Muyan Jiang", "Kishore Srinivas", 
                     "Baiyu Shi", "Yahav Avigal", "Huang Huang",
                     "Thomas Low", "Danyal Fer", "Ken Goldberg" ],
-        conference: "International Conference on Robotics and Automation (ICRA) 2023",
+        conference: "IEEE International Conference on Robotics and Automation (ICRA) 2023",
         description: "",
         arXiv: "https://arxiv.org/abs/2211.02293",
         paper: "https://ieeexplore.ieee.org/document/10160966",
@@ -219,7 +238,7 @@ export const publications = [
     {
         title: "A Trimodal Framework for Robot-Assisted Vascular Shunt Insertion When a Supervising Surgeon is Local, Remote, or Unavailable",
         authors: ["Karthik Dharmarajan*", "Will Panitch*", "Baiyu Shi", "Huang Huang", "Lawrence Yunliang Chen", "Thomas Low", "Danyal Fer", "Ken Goldberg"],
-        conference: "International Symposium on Medical Robotics (ISMR) 2023",
+        conference: "IEEE International Symposium on Medical Robotics (ISMR) 2023",
         description: "",
         paper: "https://ieeexplore.ieee.org/document/10130195",
         image: TrimodalFramework,

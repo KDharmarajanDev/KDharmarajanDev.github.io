@@ -1,12 +1,13 @@
 import './App.css';
 import ContactSegment from './ContactSegment';
-import { Introduction, publications } from './info';
+import { Introduction, publications, news } from './info';
 import TopBar from './top-bar';
 import { Box, ThemeProvider, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { light, dark } from './theme';
 import { styled } from '@mui/system';
 import PublicationCard from './publication-card';
+import NewsSection from './news-section';
 import CssBaseline from "@mui/material/CssBaseline";
 import { useRef } from 'react';
 
@@ -27,10 +28,12 @@ function App() {
   const theme = useSelector(selectTheme);
 
   const aboutMeRef = useRef();
+  const newsRef = useRef();
   const publicationsRef = useRef();
 
   const topTabs = [
     { label: "About Me", key: "about-me", elemRef: aboutMeRef },
+    { label: "News", key: "news", elemRef: newsRef },
     { label: "Publications", key: "publications", elemRef: publicationsRef }
   ];  
 
@@ -44,6 +47,10 @@ function App() {
           <Box id="about-me" sx={{ marginTop: 10 }} ref={aboutMeRef}>
             <Typography variant="h2">About Me</Typography>
             <Introduction/>
+          </Box>
+          <Box id="news" sx={{ marginTop: 5 }} ref={newsRef}>
+            <Typography variant="h2">News</Typography>
+            <NewsSection news={news} />
           </Box>
           <Box id="publications" sx={{ marginTop: 5 }} ref={publicationsRef}>
             <Typography variant="h2">Publications</Typography>
