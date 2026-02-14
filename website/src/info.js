@@ -45,7 +45,7 @@ export const news = [
         date: "Feb 2026",
         content: (
             <>
-                I have decided to return to UC Berkeley as a CS PhD student. Go Bears 🐻!
+                I will be returning to UC Berkeley as a CS PhD student. Go Bears 🐻!
             </>
         )
     },
