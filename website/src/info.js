@@ -130,7 +130,7 @@ export const publications = [
         title: "STITCH: Augmented Dexterity for Suture Throws Including Thread Coordination and Handoffs",
         authors: ["Kush Hari*", "Hansoul Kim*", "Will Panitch", "Kishore Srinivas", "Vincent Schorp", "Karthik Dharmarajan",
             "Shreya Ganti", "Tara Sadjadpour", "Ken Goldberg"],
-        conference: "IEEEInternational Symposium on Medical Robotics (ISMR) 2024",
+        conference: "IEEE International Symposium on Medical Robotics (ISMR) 2024",
         description: "",
         special: "Best Paper Finalist",
         paper: "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10585751",
