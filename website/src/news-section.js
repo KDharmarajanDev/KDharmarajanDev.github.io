@@ -29,7 +29,7 @@ const ShowMoreButton = styled(Button)(({ theme }) => ({
 
 function NewsSection({ news }) {
     const [expanded, setExpanded] = useState(false);
-    const INITIAL_DISPLAY_COUNT = 2;
+    const INITIAL_DISPLAY_COUNT = 5;
     
     const displayedNews = expanded ? news : news.slice(0, INITIAL_DISPLAY_COUNT);
     const hasMore = news.length > INITIAL_DISPLAY_COUNT;

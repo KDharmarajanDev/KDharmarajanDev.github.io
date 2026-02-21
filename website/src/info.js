@@ -75,6 +75,7 @@ export const publications = [
         paper: "https://arxiv.org/pdf/2601.04194",
         arXiv: "https://arxiv.org/abs/2601.04194",
         website: "https://yanzhelyu.github.io/chord/",
+        tweet: "https://x.com/gengchen01/status/2012271384010047956",
         image: Chord,
         hoverImage: Chord
     },
