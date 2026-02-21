@@ -50,6 +50,14 @@ export const news = [
         )
     },
     {
+        date: "Feb 2026",
+        content: (
+            <>
+                <StyledLink href="https://yanzhelyu.github.io/chord/" underline="hover">CHORD</StyledLink> has been accepted to CVPR 2026!
+            </>
+        )
+    },
+    {
         date: "Jan 2026",
         content: (
             <>
@@ -63,7 +71,7 @@ export const publications = [
     {
         title: "Choreographing a World of Dynamic Objects",
         authors: ["Yanzhe Lyu*", "Chen Geng*", "Karthik Dharmarajan", "Yunzhi Zhang", "Hadi Alzayer", "Shangzhe Wu", "Jiajun Wu"],
-        conference: "arXiv 2026",
+        conference: "Conference on Computer Vision and Pattern Recognition (CVPR) 2026",
         paper: "https://arxiv.org/pdf/2601.04194",
         arXiv: "https://arxiv.org/abs/2601.04194",
         website: "https://yanzhelyu.github.io/chord/",
@@ -73,7 +81,7 @@ export const publications = [
     {
         title: "Dream2Flow: Bridging Video Generation and Open-World Manipulation with 3D Object Flow",
         authors: ["Karthik Dharmarajan", "Wenlong Huang", "Jiajun Wu", "Li Fei-Fei†", "Ruohan Zhang†"],
-        conference: "IEEE International Conference on Robotics and Automation (ICRA) 2026",
+        conference: "International Conference on Robotics and Automation (ICRA) 2026",
         paper: "https://dream2flow.github.io/paper.pdf",
         arXiv: "https://arxiv.org/abs/2512.24766",
         website: "https://dream2flow.github.io/",
@@ -106,7 +114,7 @@ export const publications = [
         title: "BOMP: Bin-Optimized Motion Planning",
         authors: ["Zachary Tam", "Karthik Dharmarajan", "Tianshuang Qiu", "Yahav Avigal", "Jeffrey Ichnowski",
             "Ken Goldberg"],
-        conference: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) 2024",
+        conference: "International Conference on Intelligent Robots and Systems (IROS) 2024",
         description: "",
         paper: "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10801312",
         image: BOMP,
@@ -130,7 +138,7 @@ export const publications = [
         title: "STITCH: Augmented Dexterity for Suture Throws Including Thread Coordination and Handoffs",
         authors: ["Kush Hari*", "Hansoul Kim*", "Will Panitch", "Kishore Srinivas", "Vincent Schorp", "Karthik Dharmarajan",
             "Shreya Ganti", "Tara Sadjadpour", "Ken Goldberg"],
-        conference: "IEEE International Symposium on Medical Robotics (ISMR) 2024",
+        conference: "International Symposium on Medical Robotics (ISMR) 2024",
         description: "",
         special: "Best Paper Finalist",
         paper: "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10585751",
@@ -149,7 +157,7 @@ export const publications = [
         title: "ORBIT-Surgical: An Open-Simulation Framework for Learning Surgical Augmented Dexterity",
         authors: ["Qinxi Yu*", "Masoud Moghani*", "Karthik Dharmarajan", "Vincent Schorp", "Will Panitch",
             "Jingzhou Liu", "Kush Hari", "Huang Huang", "Mayank Mittal", "Ken Goldberg", "Animesh Garg"],
-        conference: "IEEE International Conference on Robotics and Automation (ICRA) 2024",
+        conference: "International Conference on Robotics and Automation (ICRA) 2024",
         description: "",
         paper: "https://ieeexplore.ieee.org/document/10611637",
         website: "https://orbit-surgical.github.io/",
@@ -193,7 +201,7 @@ export const publications = [
         title: "FogROS2-SGC: A ROS2 Cloud Robotics Platform for Secure Global Connectivity",
         authors: ["Kaiyuan Chen", "Ryan Hoque", "Karthik Dharmarajan", "Edith LLontop", 
                 "Simeon Adebola", "Jeffrey Ichnowski", "John Kubiatowicz"," Ken Goldberg"],
-        conference: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) 2023",
+        conference: "International Conference on Intelligent Robots and Systems (IROS) 2023",
         description: "",
         arXiv: "https://arxiv.org/abs/2306.17157",
         website: "https://sites.google.com/view/fogros2-sgc",
@@ -208,7 +216,7 @@ export const publications = [
                     "Michael Danielczuk", "Víctor Mayoral-Vilches", "Nikhil Jha",
                     "Hugo Zhan", "Edith LLontop", "Derek Xu", "John Kubiatowicz", 
                     "Ion Stoica", "Joseph Gonzalez", "Ken Goldberg"],
-        conference: "IEEE International Conference on Robotics and Automation (ICRA) 2023",
+        conference: "International Conference on Robotics and Automation (ICRA) 2023",
         description: "",
         arXiv: "https://arxiv.org/abs/2205.09778",
         paper: "https://ieeexplore.ieee.org/document/10161307",
@@ -227,7 +235,7 @@ export const publications = [
         authors: ["Karthik Dharmarajan*", "Will Panitch*", "Muyan Jiang", "Kishore Srinivas", 
                     "Baiyu Shi", "Yahav Avigal", "Huang Huang",
                     "Thomas Low", "Danyal Fer", "Ken Goldberg" ],
-        conference: "IEEE International Conference on Robotics and Automation (ICRA) 2023",
+        conference: "International Conference on Robotics and Automation (ICRA) 2023",
         description: "",
         arXiv: "https://arxiv.org/abs/2211.02293",
         paper: "https://ieeexplore.ieee.org/document/10160966",
@@ -238,7 +246,7 @@ export const publications = [
     {
         title: "A Trimodal Framework for Robot-Assisted Vascular Shunt Insertion When a Supervising Surgeon is Local, Remote, or Unavailable",
         authors: ["Karthik Dharmarajan*", "Will Panitch*", "Baiyu Shi", "Huang Huang", "Lawrence Yunliang Chen", "Thomas Low", "Danyal Fer", "Ken Goldberg"],
-        conference: "IEEE International Symposium on Medical Robotics (ISMR) 2023",
+        conference: "International Symposium on Medical Robotics (ISMR) 2023",
         description: "",
         paper: "https://ieeexplore.ieee.org/document/10130195",
         image: TrimodalFramework,
@@ -263,7 +271,7 @@ export const publications = [
         authors: ["Sophea Bonne*", "Will Panitch*", "Karthik Dharmarajan*", "Kishore Srinivas*", "Jerri-Lynn Kincade", 
                 "Thomas Low", "Bruce Knoth", "Cregg Cowan", "Danyal Fer", "Brijen Thananjeyan", "Justin Kerr", 
                 "Jeffrey Ichnowski", "Ken Goldberg"],
-        conference: "IEEE International Conference on Automation Science and Engineering (CASE) 2022",
+        conference: "International Conference on Automation Science and Engineering (CASE) 2022",
         description: "",
         paper: "https://ieeexplore.ieee.org/document/9926585",
         image: DTFramework,
