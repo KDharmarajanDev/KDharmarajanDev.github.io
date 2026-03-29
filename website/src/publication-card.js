@@ -189,7 +189,7 @@ function InfoButtons(props) {
             <Grid item>
                 <StyledButton variant="outlined"
                 startIcon={<TwitterIcon/>} onClick={tweetCallback}>
-                Tweet
+                Summary
                 </StyledButton>
             </Grid>
             }
