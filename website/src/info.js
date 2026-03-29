@@ -12,7 +12,7 @@ import STITCH from './assets/STITCH.gif';
 import Mirage from './assets/Mirage.gif';
 import BOMP from './assets/BOMP.gif';
 import ROVI_VIDEO from './assets/rovi.mp4';
-import Dream2Flow from './assets/Dream2Flow.png';
+import Dream2Flow from './assets/dream2flow.mp4';
 import Chord from './assets/chord.mp4';
 
 export const StyledLink = styled(Link, {
