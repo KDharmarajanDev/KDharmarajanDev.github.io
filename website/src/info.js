@@ -86,6 +86,7 @@ export const publications = [
         paper: "https://dream2flow.github.io/paper.pdf",
         arXiv: "https://arxiv.org/abs/2512.24766",
         website: "https://dream2flow.github.io/",
+        tweet: "https://x.com/wenlong_huang/status/2035032566529712244",
         image: Dream2Flow,
         hoverImage: Dream2Flow
     },
