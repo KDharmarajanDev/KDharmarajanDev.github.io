@@ -45,7 +45,7 @@ export const news = [
         date: "Apr 2026",
         content: (
             <>
-                Invited talk at <StyledLink href="https://haozhang.ai/" underline="hover">UC San Diego</StyledLink> on "Open-World Robot Manipulation with Video Generation Models".
+                Invited talk at <StyledLink href="https://haoailab.com/" underline="hover">UC San Diego</StyledLink> on "Open-World Robot Manipulation with Video Generation Models".
             </>
         )
     },
