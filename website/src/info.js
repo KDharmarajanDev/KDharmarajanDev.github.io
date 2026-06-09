@@ -90,6 +90,11 @@ export const publications = [
     {
         title: "Dream2Flow: Bridging Video Generation and Open-World Manipulation with 3D Object Flow",
         authors: ["Karthik Dharmarajan", "Wenlong Huang", "Jiajun Wu", "Li Fei-Fei†", "Ruohan Zhang†"],
+        award: (
+            <>
+                <StyledLink href="https://www.dynsyslab.org/icra2026-workshop-on-semantics-for-reliable-robot-autonomy/" underline="hover">ICRA Semantics for Reliable Robot Autonomy Workshop</StyledLink> Best Paper Award
+            </>
+        ),
         conference: "International Conference on Robotics and Automation (ICRA) 2026",
         paper: "https://dream2flow.github.io/paper.pdf",
         arXiv: "https://arxiv.org/abs/2512.24766",

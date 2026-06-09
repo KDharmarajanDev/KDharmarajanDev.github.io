@@ -228,6 +228,13 @@ export default function PublicationCard(props) {
                         <AuthorList authors={props.authors}/> :
                         null
                         }
+                        {props.award ?
+                        <StyledDescription component="p">
+                            <strong>
+                                {formatSuperscript(props.award)}
+                            </strong>
+                        </StyledDescription> :
+                        null}
                         {props.conference ? 
                         <StyledDescription component="p" sx={{ fontStyle: 'italic' }}>
                             {formatSuperscript(props.conference)}
