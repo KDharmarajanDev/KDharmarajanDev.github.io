@@ -20,4 +20,16 @@ python3 scripts/new-post.py "Post title" --description "One-sentence summary."
 ```
 
 See [`blog/README.md`](./blog/README.md) for the complete authoring and one-time Giscus setup
-workflow. Run `python3 scripts/check-site.py` for a quick offline verification.
+workflow.
+
+## Pre-push check
+
+Run this before pushing:
+
+```bash
+python3 scripts/check-site.py
+```
+
+Along with checking local links and blog scaffolding, it reports publication authors missing from
+`author-links.js`. Add authors who intentionally do not need a link to
+`AUTHORS_WITHOUT_LINKS_ALLOWED` in `scripts/check-site.py`.
