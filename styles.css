@@ -124,6 +124,9 @@ a {
 .text-link,
 .section-nav a,
 .news-text a,
+.blog-feature h3 a,
+.post-card h2 a,
+.post-content a,
 .publication-note a,
 .publication-coverage a {
   color: var(--text);
@@ -150,6 +153,12 @@ a {
 .section-nav a:focus-visible,
 .news-text a:hover,
 .news-text a:focus-visible,
+.blog-feature h3 a:hover,
+.blog-feature h3 a:focus-visible,
+.post-card h2 a:hover,
+.post-card h2 a:focus-visible,
+.post-content a:hover,
+.post-content a:focus-visible,
 .publication-note a:hover,
 .publication-note a:focus-visible,
 .publication-coverage a:hover,
@@ -219,6 +228,122 @@ a {
 
 .news-text {
   line-height: 1.7;
+}
+
+.blog-feature,
+.post-card,
+.comments-placeholder {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+}
+
+.blog-feature {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem;
+}
+
+.blog-feature h3,
+.post-card h2 {
+  margin: 0.35rem 0 0.5rem;
+}
+
+.blog-feature p:last-child,
+.post-card p:last-child {
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+.blog-header {
+  padding: 4rem 0 2rem;
+}
+
+.blog-header h1,
+.post-header h1 {
+  margin: 0.35rem 0 0.75rem;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.blog-header > p:last-child,
+.post-header > p:last-child {
+  max-width: 65ch;
+  line-height: 1.7;
+}
+
+.post-list {
+  display: grid;
+  gap: 1rem;
+  padding-bottom: 4rem;
+}
+
+.post-card {
+  padding: 1.25rem;
+}
+
+.post-meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.post-page {
+  width: min(760px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+.post-header {
+  padding: 4rem 0 2rem;
+}
+
+.post-content {
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.post-content h2 {
+  margin-top: 2.25rem;
+  line-height: 1.25;
+}
+
+.post-content pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--surface) 80%, var(--text) 5%);
+}
+
+.comments {
+  padding-top: 2rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--border);
+}
+
+.giscus {
+  margin-top: 1rem;
+}
+
+.giscus-frame {
+  color-scheme: light dark;
+}
+
+.comments-placeholder {
+  padding: 1rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.site-footer {
+  padding: 2rem 0 3rem;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .publication-list {
@@ -309,8 +434,14 @@ a {
   }
 
   .news-list li,
-  .publication {
+  .publication,
+  .blog-feature {
     grid-template-columns: 1fr;
+  }
+
+  .blog-feature {
+    display: grid;
+    align-items: start;
   }
 }
 

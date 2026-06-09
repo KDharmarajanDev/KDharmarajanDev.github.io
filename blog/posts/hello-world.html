@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f141a" />
+    <meta name="description" content="A small test of a dependency-free blog workflow and Giscus comments." />
+    <link rel="canonical" href="https://kdharmarajan.com/blog/posts/hello-world.html" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Why I added a plain HTML blog · Karthik Dharmarajan</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <main id="main" class="post-page">
+      <header class="post-header">
+        <p class="eyebrow"><a href="/blog/">Notes from the lab</a></p>
+        <h1>Why I added a plain HTML blog</h1>
+        <p class="post-meta"><time datetime="2026-06-08">June 8, 2026</time> · 2 min read</p>
+      </header>
+
+      <article class="post-content">
+        <p>
+          This is a quick test of a blog that matches the rest of this site: static, understandable,
+          and deployable directly through GitHub Pages.
+        </p>
+        <h2>The workflow</h2>
+        <p>A new post starts with one command from the repository root:</p>
+        <pre><code>python3 scripts/new-post.py "What I learned this week"</code></pre>
+        <p>
+          The script creates an HTML file from a template and adds it to the blog index. There is no
+          build step or runtime dependency; edit the generated post, preview it locally, and commit it.
+        </p>
+        <h2>Comments without a backend</h2>
+        <p>
+          The comment section below uses <a href="https://giscus.app/" target="_blank" rel="noreferrer">Giscus</a>.
+          It stores conversations in this repository's GitHub Discussions, which keeps the site itself
+          fully static. Offline, the page displays a fallback instead of making a broken request.
+        </p>
+      </article>
+
+      <section class="comments" aria-labelledby="comments-heading">
+        <h2 id="comments-heading">Comments</h2>
+        <div class="giscus" data-giscus-container></div>
+        <script src="/blog/giscus-loader.js"></script>
+      </section>
+    </main>
+  </body>
+</html>

@@ -68,6 +68,8 @@
     <nav class="section-nav shell" aria-label="Section navigation">
       <a href="#about">About</a>
       <a href="#news">News</a>
+      <!-- Remove hidden from this link and the blog section below to promote the blog. -->
+      <a href="#blog" hidden>Blog</a>
       <a href="#publications">Publications</a>
     </nav>
 
@@ -113,6 +115,24 @@
             <span class="news-text"><a href="https://dream2flow.github.io/" target="_blank" rel="noreferrer">Dream2Flow</a> has been accepted to ICRA 2026, see you in Vienna!</span>
           </li>
         </ol>
+      </section>
+
+      <section class="section" id="blog" aria-labelledby="blog-heading" hidden>
+        <div class="section-heading">
+          <p class="section-kicker">Blog</p>
+          <h2 id="blog-heading">Notes from the lab</h2>
+        </div>
+        <article class="blog-feature">
+          <div>
+            <p class="post-meta"><time datetime="2026-06-08">June 8, 2026</time> · 2 min read</p>
+            <h3><a href="/blog/posts/hello-world.html">Why I added a plain HTML blog</a></h3>
+            <p>
+              A small test of a dependency-free writing workflow, offline-friendly pages, and
+              GitHub Discussions-powered comments.
+            </p>
+          </div>
+          <a class="button-link" href="/blog/">Read the blog</a>
+        </article>
       </section>
 
       <section class="section" id="publications" aria-labelledby="publications-heading">
