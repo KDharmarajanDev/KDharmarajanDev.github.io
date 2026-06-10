@@ -509,15 +509,24 @@ textarea {
 }
 
 .news-timeline--archive {
-  padding-top: 0.35rem;
+  padding-top: 0;
 }
 
 .news-timeline--archive li {
-  padding-block: 0.85rem;
+  padding-block: 1.1rem;
   opacity: 0.62;
   transition:
     opacity 320ms ease,
     transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.news-timeline--archive li:first-child {
+  padding-top: 1.1rem;
+}
+
+.news-timeline--archive li:first-child::before {
+  top: 1.55rem;
+  background: var(--bg);
 }
 
 .news-archive-panel.is-open .news-timeline--archive li {
