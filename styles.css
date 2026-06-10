@@ -694,14 +694,14 @@ textarea {
   isolation: isolate;
   align-self: start;
   overflow: hidden;
-  background: var(--surface-muted);
+  background: transparent;
   aspect-ratio: 960 / 539;
 }
 
 .publication-media::before {
   position: absolute;
   inset: -1rem;
-  z-index: -1;
+  z-index: 0;
   background-image: var(--media-backdrop);
   background-position: center;
   background-size: cover;
@@ -715,6 +715,7 @@ textarea {
 .publication-media video,
 .thumb-fallback {
   position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
 }
