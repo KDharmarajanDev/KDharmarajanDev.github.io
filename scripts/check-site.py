@@ -4,6 +4,7 @@
 from html.parser import HTMLParser
 from pathlib import Path
 import re
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML_FILES = list(ROOT.glob("*.html")) + list((ROOT / "blog").rglob("*.html"))
@@ -20,7 +21,7 @@ class LinkParser(HTMLParser):
         self.links = []
 
     def handle_starttag(self, tag, attrs):
-        if tag not in {"a", "link", "script"}:
+        if tag not in {"a", "img", "link", "script", "source"}:
             return
         values = dict(attrs)
         target = values.get("href") or values.get("src")
@@ -71,8 +72,9 @@ for page in HTML_FILES:
     parser = LinkParser()
     parser.feed(page.read_text())
     for link in parser.links:
-        target = ROOT / link.lstrip("/")
-        if link.endswith("/"):
+        path = urlsplit(link).path
+        target = ROOT / path.lstrip("/")
+        if path.endswith("/"):
             target /= "index.html"
         if not target.exists():
             failures.append(f"{page.relative_to(ROOT)} -> {link}")

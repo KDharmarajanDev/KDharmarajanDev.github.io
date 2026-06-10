@@ -8,7 +8,7 @@
     category: "Announcements",
     categoryId: "DIC_kwDOEZj6t84C-zaU",
   };
-  const themeUrl = new URL("/blog/giscus-theme.css", window.location.origin).href;
+  const activeTheme = () => document.documentElement.dataset.theme === "dark" ? "dark" : "light";
 
   const showMessage = (html) => {
     container.innerHTML = `<p class="comments-placeholder">${html}</p>`;
@@ -36,10 +36,24 @@
     "data-reactions-enabled": "1",
     "data-emit-metadata": "0",
     "data-input-position": "top",
-    "data-theme": themeUrl,
+    "data-theme": activeTheme(),
     "data-lang": "en",
     crossorigin: "anonymous",
     async: "",
   }).forEach(([key, value]) => script.setAttribute(key, value));
   container.appendChild(script);
+
+  window.addEventListener("site-theme-change", (event) => {
+    const iframe = document.querySelector("iframe.giscus-frame");
+    iframe?.contentWindow.postMessage(
+      {
+        giscus: {
+          setConfig: {
+            theme: event.detail,
+          },
+        },
+      },
+      "https://giscus.app",
+    );
+  });
 })();
