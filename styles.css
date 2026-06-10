@@ -318,6 +318,11 @@ textarea {
   gap: 2rem;
 }
 
+#news {
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
 .section-heading {
   margin: 0;
 }
@@ -357,7 +362,7 @@ textarea {
 .news-content::before {
   position: absolute;
   top: 0.45rem;
-  bottom: 1.05rem;
+  bottom: 1.35rem;
   left: 0.28rem;
   width: 1px;
   background: linear-gradient(
@@ -419,7 +424,7 @@ textarea {
 .timeline-reveal {
   position: relative;
   z-index: 1;
-  padding: 0.35rem 0 0.15rem 1.5rem;
+  padding: 0.15rem 0 0.15rem 1.5rem;
 }
 
 .timeline-reveal::before {
@@ -479,51 +484,49 @@ textarea {
 }
 
 .news-archive-panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  visibility: hidden;
+  max-height: 4.6rem;
+  overflow: hidden;
+  opacity: 0.72;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.7) 48%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.7) 48%, transparent 100%);
   transition:
-    grid-template-rows 420ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 320ms ease,
-    visibility 0s linear 420ms;
+    max-height 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 360ms ease;
 }
 
 .news-archive-panel.is-open {
-  grid-template-rows: 1fr;
+  max-height: 30rem;
   opacity: 1;
-  visibility: visible;
+  -webkit-mask-image: none;
+  mask-image: none;
   transition:
-    grid-template-rows 480ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 380ms ease,
-    visibility 0s;
+    max-height 620ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 360ms ease;
 }
 
 .news-archive-inner {
-  min-height: 0;
-  overflow: hidden;
+  min-height: 8rem;
 }
 
 .news-timeline--archive {
-  padding-top: 0.65rem;
+  padding-top: 0.35rem;
 }
 
 .news-timeline--archive li {
   padding-block: 0.85rem;
-  opacity: 0;
-  transform: translateY(-0.4rem);
+  opacity: 0.62;
   transition:
     opacity 320ms ease,
     transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .news-archive-panel.is-open .news-timeline--archive li {
-  opacity: 0.82;
+  opacity: 0.86;
   transform: translateY(0);
 }
 
 .news-archive-panel.is-open .news-timeline--archive li:nth-child(2) {
-  opacity: 0.66;
+  opacity: 0.72;
   transition-delay: 55ms;
 }
 
