@@ -65,7 +65,7 @@
     </header>
 
     <nav class="section-nav shell" aria-label="Section navigation">
-      <a href="#news">News</a>
+      <a href="#news">Recent updates</a>
       <!-- Remove hidden from this link and the blog section below to promote the blog. -->
       <a href="#blog" hidden>Blog</a>
       <a href="#publications">Publications</a>
@@ -75,7 +75,6 @@
     <main id="main" class="shell">
       <section class="section" id="news" aria-labelledby="news-heading">
         <div class="section-heading">
-          <p class="section-kicker">News</p>
           <h2 id="news-heading">Recent updates</h2>
         </div>
 
@@ -95,26 +94,38 @@
             </li>
           </ol>
 
-          <details class="news-archive">
-            <summary>Earlier updates</summary>
-            <ol class="news-list">
-              <li>
-                <span class="news-date">Feb 2026</span>
-                <span class="news-text"><a href="https://yanzhelyu.github.io/chord/" target="_blank" rel="noreferrer">CHORD</a> has been accepted to CVPR 2026.</span>
-              </li>
-              <li>
-                <span class="news-date">Jan 2026</span>
-                <span class="news-text"><a href="https://dream2flow.github.io/" target="_blank" rel="noreferrer">Dream2Flow</a> has been accepted to ICRA 2026, see you in Vienna!</span>
-              </li>
-            </ol>
-          </details>
+          <div class="timeline-reveal">
+            <button
+              class="timeline-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="earlier-updates"
+            >
+              <span>Earlier updates</span>
+              <span class="timeline-toggle-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <div class="news-archive-panel" id="earlier-updates" aria-hidden="true" inert>
+            <div class="news-archive-inner">
+              <ol class="news-list news-timeline news-timeline--archive">
+                <li>
+                  <span class="news-date">Feb 2026</span>
+                  <span class="news-text"><a href="https://yanzhelyu.github.io/chord/" target="_blank" rel="noreferrer">CHORD</a> has been accepted to CVPR 2026.</span>
+                </li>
+                <li>
+                  <span class="news-date">Jan 2026</span>
+                  <span class="news-text"><a href="https://dream2flow.github.io/" target="_blank" rel="noreferrer">Dream2Flow</a> has been accepted to ICRA 2026, see you in Vienna!</span>
+                </li>
+              </ol>
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="section" id="blog" aria-labelledby="blog-heading" hidden>
         <div class="section-heading">
-          <p class="section-kicker">Blog</p>
-          <h2 id="blog-heading">Notes from the lab</h2>
+          <h2 id="blog-heading">Blog</h2>
         </div>
         <article class="blog-feature">
           <div>
@@ -131,8 +142,7 @@
 
       <section class="section" id="publications" aria-labelledby="publications-heading">
         <div class="section-heading">
-          <p class="section-kicker">Publications</p>
-          <h2 id="publications-heading">Selected papers</h2>
+          <h2 id="publications-heading">Publications</h2>
         </div>
 
         <div class="publication-list">
@@ -444,5 +454,6 @@
     </main>
     <script src="/author-links.js" defer></script>
     <script src="/publication-media.js?v=20260610-8" defer></script>
+    <script src="/timeline.js?v=20260610-1" defer></script>
   </body>
 </html>
