@@ -24,8 +24,9 @@
 
     document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
       const nextTheme = activeTheme === "dark" ? "light" : "dark";
-      button.textContent = `${nextTheme} mode`;
+      button.textContent = "";
       button.setAttribute("aria-label", `Switch to ${nextTheme} mode`);
+      button.setAttribute("title", `Switch to ${nextTheme} mode`);
       button.setAttribute("aria-pressed", String(activeTheme === "dark"));
     });
 

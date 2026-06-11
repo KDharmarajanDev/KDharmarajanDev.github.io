@@ -61,7 +61,6 @@ python3 -m http.server
 
 ## Docs and References
 
-- If the user asks about a library, framework, SDK, API, or CLI tool, use Context7 documentation lookup first.
 - Keep answers grounded in the current repo state rather than the old React app.
 
 ## Maintenance Notes
