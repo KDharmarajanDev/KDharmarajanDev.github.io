@@ -8,6 +8,8 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML_FILES = list(ROOT.glob("*.html")) + list((ROOT / "blog").rglob("*.html"))
+GITHUB_REPO_RE = re.compile(r"https://github\.com/([^/\"?#]+/[^/\"?#]+)")
+STAR_SNAPSHOT_RE = re.compile(r'"([^"]+/[^"]+)":\s*(\d+),')
 
 # Authors listed here may intentionally appear without a profile link.
 AUTHORS_WITHOUT_LINKS_ALLOWED = {
@@ -86,6 +88,19 @@ missing_author_links = sorted(
 )
 failures.extend(
     f'publication author "{author}" is missing from author-links.js' for author in missing_author_links
+)
+
+publication_repos = set(GITHUB_REPO_RE.findall((ROOT / "index.html").read_text()))
+snapshot_repos = {
+    repo for repo, _count in STAR_SNAPSHOT_RE.findall((ROOT / "github-stars-data.js").read_text())
+}
+failures.extend(
+    f'GitHub repository "{repo}" is missing from github-stars-data.js'
+    for repo in sorted(publication_repos - snapshot_repos)
+)
+failures.extend(
+    f'github-stars-data.js contains unused repository "{repo}"'
+    for repo in sorted(snapshot_repos - publication_repos)
 )
 
 required = [

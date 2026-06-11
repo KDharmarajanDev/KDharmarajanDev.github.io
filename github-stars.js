@@ -46,30 +46,27 @@ publicationLinks.forEach((link) => {
 
   const stars = document.createElement("span");
   stars.className = "github-stars";
-  stars.setAttribute("aria-label", "Loading GitHub stars");
-  stars.textContent = "…";
+  const repoName = `${owner}/${repo}`;
+  const count = githubStarsSnapshot.repos[repoName];
+
+  if (!Number.isInteger(count)) {
+    stars.setAttribute("aria-label", "GitHub star count unavailable");
+    stars.textContent = "—";
+    link.append(stars);
+    return;
+  }
+
+  const formattedCount = new Intl.NumberFormat("en-US", {
+    notation: count >= 1000 ? "compact" : "standard",
+    maximumFractionDigits: 1,
+  }).format(count);
+  const snapshotDate = githubStarsSnapshot.updatedAt.slice(0, 10);
+
+  stars.setAttribute(
+    "aria-label",
+    `${count.toLocaleString("en-US")} GitHub stars, updated ${snapshotDate}`
+  );
+  stars.title = `Updated ${snapshotDate}`;
+  stars.textContent = formattedCount;
   link.append(stars);
-
-  fetch(`https://img.shields.io/github/stars/${owner}/${repo}.json`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Shields.io returned ${response.status}`);
-      }
-
-      return response.json();
-    })
-    .then((badge) => {
-      const count = badge.message;
-
-      if (typeof count !== "string" || !count.trim()) {
-        return;
-      }
-
-      stars.textContent = count;
-      stars.setAttribute("aria-label", `${count} GitHub stars`);
-    })
-    .catch(() => {
-      stars.textContent = "—";
-      stars.setAttribute("aria-label", "GitHub star count unavailable");
-    });
 });

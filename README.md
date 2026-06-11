@@ -33,3 +33,16 @@ python3 scripts/check-site.py
 Along with checking local links and blog scaffolding, it reports publication authors missing from
 `author-links.js`. Add authors who intentionally do not need a link to
 `AUTHORS_WITHOUT_LINKS_ALLOWED` in `scripts/check-site.py`.
+
+## GitHub stars
+
+Publication star counts come from the checked-in `github-stars-data.js` snapshot, so the live site
+does not depend on GitHub, Shields.io, or a token pool. Refresh the snapshot when desired with:
+
+```bash
+python3 scripts/update-github-stars.py
+```
+
+The script works without authentication for this site's small repository list. Set `GITHUB_TOKEN`
+or `GH_TOKEN` to use a higher GitHub API rate limit. Refreshes are atomic: if any request fails,
+the last known snapshot remains unchanged.
