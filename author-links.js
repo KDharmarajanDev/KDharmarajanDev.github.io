@@ -57,7 +57,13 @@ const authorLinks = {
   "Chen Geng": "https://chen-geng.com/",
   "Yunzhi Zhang": "https://cs.stanford.edu/~yzzhang/",
   "Hadi Alzayer": "https://hadizayer.github.io/",
-  "Shangzhe Wu": "https://www.elliottwu.com/"
+  "Shangzhe Wu": "https://www.elliottwu.com/",
+  "Wensi Ai": "https://wensi-ai.github.io/",
+  "Christopher Luey": "https://luey.us",
+  "Evans Han": "https://scholar.google.com/citations?user=HXED4kIAAAAJ&hl=en",
+  "Yunfan Jiang": "https://yunfanj.ai/",
+  "Stef Ren": "https://www.linkedin.com/in/stefren/",
+  "Jianwen Xie": "http://www.stat.ucla.edu/~jxie/"
 }
 
 const authorNames = Object.keys(authorLinks).sort((a, b) => b.length - a.length);
